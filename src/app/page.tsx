@@ -4,6 +4,8 @@ import Link from "next/link"
 
 export default function Home() {
   return (
+    <div>
+
     <div className="container max-w-6xl">
       <main className="grid grid-cols-2 py-20">
         <div className="flex flex-col gap-3">
@@ -19,6 +21,12 @@ export default function Home() {
           </div>
         </div>
       </main>
+    </div>
+      <section className="py-10">
+        <div className="container">
+          <h2 className="text-center text-3xl">Transformando <span className="font-bold text-orange-600">Ideias </span>em <span className="font-bold text-orange-600">Elegância</span>, cada pedra conta uma <span className="font-bold text-orange-600">História.</span></h2>
+        </div>
+      </section>
     </div>
   )
 }
