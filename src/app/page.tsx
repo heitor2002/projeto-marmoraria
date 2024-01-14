@@ -2,7 +2,8 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Link from "next/link";
 import SliderHome from "./components/SliderHome";
-import MosaicHome from "./components/MosaicHome";
+import MosaicHome from "./components/GalleryHome";
+import AboutUs from "./components/AboutUs";
 
 export default function Home() {
   return (
@@ -64,6 +65,7 @@ export default function Home() {
           <MosaicHome />
         </div>
       </section>
+      <AboutUs />
     </div>
   );
 }

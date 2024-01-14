@@ -1,4 +1,4 @@
-export default function MosaicHome(){
+export default function GalleryHome(){
     return(
         <div className="grid grid-cols-3 gap-10 mt-10">
             <div className="w-full p-5 border-b-2 border-l-2 border-white rounded-lg flex justify-center items-center gap-5 text-white font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">

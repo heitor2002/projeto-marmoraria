@@ -40,3 +40,7 @@
   z-index: 1;
   border-radius: 50px;
 }
+
+.custom-rounded{
+  border-radius: 20% 0 20% 0;
+}
