@@ -66,6 +66,13 @@ export default function Home() {
         </div>
       </section>
       <AboutUs />
+      <section>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14831.416280891588!2d-51.07769149999999!3d-21.669533399999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9496a33c45309e3b%3A0x9c8ce12cd330c7b8!2sMarmoraria%20Decore%20Adamantina!5e0!3m2!1spt-BR!2sbr!4v1705251686317!5m2!1spt-BR!2sbr"
+          className="w-full h-96"
+          loading="lazy"
+        ></iframe>
+      </section>
     </div>
   );
 }
