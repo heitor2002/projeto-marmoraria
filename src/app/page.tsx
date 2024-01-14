@@ -1,6 +1,7 @@
 import Image from "next/image"
 import logo from "../../public/logo.png"
 import Link from "next/link"
+import SliderHome from "./components/SliderHome"
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <section className="py-10">
         <div className="container">
           <h2 className="text-center text-3xl">Transformando <span className="font-bold text-orange-600">Ideias </span>em <span className="font-bold text-orange-600">Elegância</span>, cada pedra conta uma <span className="font-bold text-orange-600">História.</span></h2>
+          <SliderHome />
         </div>
       </section>
     </div>
