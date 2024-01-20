@@ -4,6 +4,8 @@ import Link from "next/link";
 import SliderHome from "./components/SliderHome";
 import MosaicHome from "./components/GalleryHome";
 import AboutUs from "./components/AboutUs";
+import Address from "./components/Address";
+import Mosaic from "./components/Mosaic";
 
 export default function Home() {
   return (
@@ -72,6 +74,8 @@ export default function Home() {
           className="w-full h-96"
           loading="lazy"
         ></iframe>
+        <Mosaic />
+        {/* <Address /> */}
       </section>
     </div>
   );
