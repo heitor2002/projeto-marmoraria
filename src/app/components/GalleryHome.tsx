@@ -1,7 +1,7 @@
 export default function GalleryHome(){
     return(
         <div className="grid grid-cols-3 gap-10 mt-10">
-            <div className="w-full p-5 border-b-2 border-l-2 border-white rounded-lg flex justify-center items-center gap-5 text-white font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
+            <div className="w-full p-5 border-b-2 border-l-2 border-orange-500 rounded-lg flex justify-center items-center gap-5 text-orange-500 font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -36,7 +36,7 @@ export default function GalleryHome(){
 
               <h2>Criatividade</h2>
             </div>
-            <div className="w-full p-5 border-b-2 border-r-2 border-white rounded-lg flex justify-center items-center gap-5 text-white font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
+            <div className="w-full p-5 border-b-2 border-r-2 border-orange-500 rounded-lg flex justify-center items-center gap-5 text-orange-500 font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -72,7 +72,7 @@ export default function GalleryHome(){
 
               <h2>Profissionais qualificados</h2>
             </div>
-            <div className="w-full p-5 border-b-2 border-white rounded-lg flex justify-center items-center gap-5 text-white font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
+            <div className="w-full p-5 border-b-2 border-orange-500 rounded-lg flex justify-center items-center gap-5 text-orange-500 font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

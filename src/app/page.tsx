@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Link from "next/link";
 import SliderHome from "./components/SliderHome";
-import MosaicHome from "./components/GalleryHome";
+import GalleryHome from "./components/GalleryHome";
 import AboutUs from "./components/AboutUs";
 import Address from "./components/Address";
 import Mosaic from "./components/Mosaic";
@@ -64,7 +64,7 @@ export default function Home() {
           <h2 className="text-orange-600 text-center text-3xl font-bold tracking-widest">
             Somos referência no mercado
           </h2>
-          <MosaicHome />
+          <GalleryHome />
         </div>
       </section>
       <AboutUs />
