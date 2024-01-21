@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Mosaic() {
   return (
-    <article className="py-10 bg-zinc-900">
+    <article className="pt-10 pb-20 bg-zinc-900">
       <div className="container max-w-4xl">
         <h2 className="text-zinc-100 text-2xl font-bold">
           Produtos e serviços de excelência

@@ -22,9 +22,9 @@ export default function Home() {
             </p>
             <Link
               href={"/"}
-              className="py-3 border border-emerald-500 text-center max-w-xs font-bold bg-emerald-500 text-white rounded-lg duration-300 text-md mt-5 hover:scale-105"
+              className="py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white rounded-lg duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-700"
             >
-              Entrar em contato via Whatsapp
+              Visualizar trabalhos
             </Link>
           </div>
           <div>
@@ -75,6 +75,7 @@ export default function Home() {
           loading="lazy"
         ></iframe>
         <Mosaic />
+        <div className="container max-w-4xl -translate-y-1/2 h-10 bg-orange-600"></div>
         {/* <Address /> */}
       </section>
     </div>
