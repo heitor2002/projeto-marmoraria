@@ -4,8 +4,9 @@ import Link from "next/link";
 import SliderHome from "./components/SliderHome";
 import GalleryHome from "./components/GalleryHome";
 import AboutUs from "./components/AboutUs";
-import Address from "./components/Address";
 import Mosaic from "./components/Mosaic";
+import Comments from "./components/Comments";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
             </p>
             <Link
               href={"/"}
-              className="py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white rounded-lg duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-700"
+              className="py-3 border border-orange-600 text-center max-w-xs font-bold bg-transparent text-orange-600 duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 hover:text-white"
             >
               Visualizar trabalhos
             </Link>
@@ -41,7 +42,7 @@ export default function Home() {
       </div>
       <section className="py-10">
         <div className="container">
-          <h2 className="text-center text-3xl">
+          <h2 className="text-center text-3xl text-zinc-900">
             Transformando{" "}
             <span className="font-bold text-orange-600">Ideias </span>em{" "}
             <span className="font-bold text-orange-600">Elegância</span>, cada
@@ -76,8 +77,9 @@ export default function Home() {
         ></iframe>
         <Mosaic />
         <div className="container max-w-4xl -translate-y-1/2 h-10 bg-orange-600"></div>
-        {/* <Address /> */}
+        <Comments />
       </section>
+      <Footer />
     </div>
   );
 }
