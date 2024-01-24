@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </main>
       </div>
-      <section className="py-10">
+      <section className="py-10 bg-zinc-100">
         <div className="container">
           <h2 className="text-center text-3xl text-zinc-900">
             Transformando{" "}
