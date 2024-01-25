@@ -7,16 +7,16 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl font-bold">Páginas</h2>
           <nav className="flex flex-col mt-5 gap-3">
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Página inicial
             </Link>
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Produtos
             </Link>
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Projetos
             </Link>
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Sobre nós
             </Link>
           </nav>
@@ -24,10 +24,10 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl font-bold">Social</h2>
           <nav className="flex flex-col mt-5 gap-3">
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Facebook
             </Link>
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               Instagram
             </Link>
           </nav>
@@ -35,7 +35,7 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl font-bold">Contato</h2>
           <nav className="flex flex-col mt-5 gap-5">
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               <h2>Marcos Vendedor:</h2>
               <div className="flex gap-3 mt-3">
                 <svg
@@ -55,7 +55,7 @@ export default function Footer() {
                 <h2>(18) 99999-9999</h2>
               </div>
             </Link>
-            <Link href={"/"} className="text-zinc-500">
+            <Link href={"/"} className="text-zinc-500 hover:text-white">
               <h2>Escritório:</h2>
               <div className="flex gap-3 mt-3">
                 <svg
