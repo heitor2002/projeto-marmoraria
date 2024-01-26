@@ -11,7 +11,7 @@ import "swiper/css/autoplay";
 
 export default function SliderHome() {
   return (
-    <div className="my-20 mx-auto max-w-3xl">
+    <div className="mg:my-20 my-10 mx-auto md:max-w-3xl max-w-lg">
       <Swiper
         modules={[Pagination, A11y, Autoplay]}
         slidesPerView={1}
@@ -19,7 +19,7 @@ export default function SliderHome() {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
         <SwiperSlide>
-          <div className="w-full h-96 rounded-2xl">
+          <div className="w-full md:h-96 h-72 rounded-2xl">
             <img
               src="https://static.hbt.triider.com.br/files/dynamic_content/fazer-pia-de-marmore-2937798_big.jpg"
               alt=""
@@ -28,7 +28,7 @@ export default function SliderHome() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-96 rounded-2xl">
+          <div className="w-full md:h-96 h-72 rounded-2xl">
             <img
               src="https://marinamarmores.com.br/wp-content/uploads/2019/08/marina-marmores-34-1024x577.jpg"
               alt=""
@@ -37,7 +37,7 @@ export default function SliderHome() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full h-96 rounded-2xl">
+          <div className="w-full md:h-96 h-72 rounded-2xl">
             <img
               src="https://www.cuiket.com.br/imagenes/company_photo/23220_big.jpg"
               alt=""
