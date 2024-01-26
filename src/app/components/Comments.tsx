@@ -1,8 +1,8 @@
 export default function Comments() {
   const count = [1, 1, 1, 1, 1];
   return (
-    <div className="container max-w-5xl">
-      <article className="py-20 grid grid-cols-3 gap-5">
+    <div className="container md:max-w-5xl max-w-lg">
+      <article className="py-20 grid md:grid-cols-3 grid-cols-1 gap-5">
         <div className="w-full p-3 border border-orange-600">
           <div className="flex gap-5">
             <img
