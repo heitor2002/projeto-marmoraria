@@ -11,11 +11,11 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div>
-      <div className="container max-w-6xl">
-        <main className="grid grid-cols-2 py-20">
+      <div className="container lg:max-w-6xl max-w-lg">
+        <main className="lg:grid lg:grid-cols-2 flex flex-col items-center gap-5 py-20">
           <div className="flex flex-col gap-3">
             <Image alt="logo" src={logo} />
-            <p className="mt-10 text-md">
+            <p className="mt-10 text-md text-zinc-900 lg:text-left text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
               impedit facere, qui at eveniet assumenda dignissimos non eaque
               aliquam neque aliquid consequatur quam itaque cupiditate minus,
@@ -23,7 +23,7 @@ export default function Home() {
             </p>
             <Link
               href={"/"}
-              className="py-3 border border-orange-600 text-center max-w-xs font-bold bg-transparent text-orange-600 duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 hover:text-white"
+              className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-transparent text-orange-600 duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 hover:text-white lg:mx-0 mx-auto"
             >
               Visualizar trabalhos
             </Link>
@@ -42,7 +42,7 @@ export default function Home() {
       </div>
       <section className="py-10 bg-zinc-100">
         <div className="container">
-          <h2 className="text-center text-3xl text-zinc-900">
+          <h2 className="text-center sm:text-3xl text-2xl text-zinc-900">
             Transformando{" "}
             <span className="font-bold text-orange-600">Ideias </span>em{" "}
             <span className="font-bold text-orange-600">Elegância</span>, cada
