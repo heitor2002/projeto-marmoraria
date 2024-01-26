@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="pt-10 bg-stone-800">
-      <div className="container max-w-5xl grid grid-cols-4 gap-5 text-white">
+      <div className="container md:max-w-5xl max-w-2xl grid md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-5 text-white sm:text-left text-center">
         <div>
           <h2 className="text-2xl font-bold">Páginas</h2>
           <nav className="flex flex-col mt-5 gap-3">
@@ -37,7 +37,7 @@ export default function Footer() {
           <nav className="flex flex-col mt-5 gap-5">
             <Link href={"/"} className="text-zinc-500 hover:text-white">
               <h2>Marcos Vendedor:</h2>
-              <div className="flex gap-3 mt-3">
+              <div className="flex gap-3 mt-3 sm:justify-start justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -57,7 +57,7 @@ export default function Footer() {
             </Link>
             <Link href={"/"} className="text-zinc-500 hover:text-white">
               <h2>Escritório:</h2>
-              <div className="flex gap-3 mt-3">
+              <div className="flex gap-3 mt-3 sm:justify-start justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
