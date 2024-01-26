@@ -54,7 +54,7 @@ export default function Home() {
       </section>
       <section className="py-10 bg-zinc-950">
         <div className="container max-w-5xl">
-          <h2 className="text-white text-2xl font-thin">
+          <h2 className="text-white text-2xl font-thin sm:text-left text-center">
             Especializada em{" "}
             <span className="italic font-bold text-orange-600">
               revestimentos

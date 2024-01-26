@@ -1,6 +1,6 @@
 export default function GalleryHome(){
     return(
-        <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-10 mt-10">
             <div className="w-full p-5 border-b-2 border-l-2 border-orange-500 rounded-lg flex justify-center items-center gap-5 text-orange-500 font-bold text-2xl hover:text-orange-600 hover:border-orange-600 hover:-translate-y-3 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
