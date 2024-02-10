@@ -7,15 +7,18 @@ import AboutUs from "./components/AboutUs";
 import Mosaic from "./components/Mosaic";
 import Comments from "./components/Comments";
 import Footer from "./components/Footer";
+import SectionProjectsHome from "./components/SectionProjectsHome";
+import bgColor from "../../public/banner-home.jpg"
 
 export default function Home() {
   return (
     <div>
-      <div className="container lg:max-w-6xl max-w-lg">
+      <section className="bg-zinc-950 relative">
+      <div className="container lg:max-w-6xl max-w-lg relative z-10">
         <main className="lg:grid lg:grid-cols-2 flex flex-col items-center gap-5 py-20">
           <div className="flex flex-col gap-3">
             <Image alt="logo" src={logo} />
-            <p className="mt-10 text-md text-zinc-900 lg:text-left text-center">
+            <p className="mt-10 text-md text-zinc-50 lg:text-left text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
               impedit facere, qui at eveniet assumenda dignissimos non eaque
               aliquam neque aliquid consequatur quam itaque cupiditate minus,
@@ -23,50 +26,25 @@ export default function Home() {
             </p>
             <Link
               href={"/"}
-              className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-transparent text-orange-600 duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 hover:text-white lg:mx-0 mx-auto"
+              className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 lg:mx-0 mx-auto"
             >
               Visualizar trabalhos
             </Link>
           </div>
-          <div>
-            <div className="w-full h-full flex justify-end items-center">
-              <div className="h-72 back-image">
-                <img
-                  className="w-full max-w-md h-full object-cover rounded-2xl shadow-lg"
-                  src="https://png.pngtree.com/thumb_back/fw800/background/20230717/pngtree-contemporary-white-living-room-with-luxurious-marble-flooring-and-sleek-white-image_3895769.jpg"
-                />
-              </div>
-            </div>
-          </div>
         </main>
       </div>
-      <section className="py-10 bg-zinc-100">
-        <div className="container">
-          <h2 className="text-center sm:text-3xl text-2xl text-zinc-900">
-            Transformando{" "}
-            <span className="font-bold text-orange-600">Ideias </span>em{" "}
-            <span className="font-bold text-orange-600">Elegância</span>, cada
-            pedra conta uma{" "}
-            <span className="font-bold text-orange-600">História.</span>
-          </h2>
-          <SliderHome />
-        </div>
+      <img src="https://images.unsplash.com/photo-1526868621613-18bc2df51131?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="absolute w-full h-full top-0 left-0 object-cover z-0 brightness-50" />
       </section>
-      <section className="py-10 bg-zinc-950">
-        <div className="container max-w-5xl">
-          <h2 className="text-white text-2xl font-thin sm:text-left text-center">
-            Especializada em{" "}
-            <span className="italic font-bold text-orange-600">
-              revestimentos
-            </span>{" "}
-            de túmulos em granito, galerias e construções
-          </h2>
+      <SectionProjectsHome />
+      <section className="py-10 relative z-10">
+        <div className="container max-w-5xl relative z-10">
           <div className="mx-auto my-10 bg-orange-600 w-full max-w-40 h-1"></div>
           <h2 className="text-orange-600 text-center text-3xl font-bold tracking-widest">
             Somos referência no mercado
           </h2>
           <GalleryHome />
         </div>
+          <Image alt="" src={bgColor} className="absolute w-full h-full top-0 left-0 object-cover z-0" />
       </section>
       <AboutUs />
       <section>
@@ -76,7 +54,7 @@ export default function Home() {
           loading="lazy"
         ></iframe>
         <Mosaic />
-        <div className="container max-w-4xl -translate-y-1/2 h-10 bg-orange-600"></div>
+        <div className="container max-w-4xl -translate-y-1/2 h-10 bg-golden"></div>
         <Comments />
       </section>
       <Footer />

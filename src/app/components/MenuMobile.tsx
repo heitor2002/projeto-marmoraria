@@ -36,7 +36,7 @@ export default function MenuMobile() {
         </Link>
       </div>
       <nav
-        className="fixed top-0 right-0 menu-mobile bg-stone-800 z-10 p-5 duration-300"
+        className="fixed top-0 right-0 menu-mobile bg-stone-800 z-20 p-5 duration-300"
         style={{
           transform: `translateX(${transformStyle}%)`,
         }}

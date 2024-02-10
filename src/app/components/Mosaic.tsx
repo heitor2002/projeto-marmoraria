@@ -7,7 +7,7 @@ export default function Mosaic() {
         <h2 className="text-zinc-100 text-2xl font-bold">
           Produtos e serviços de excelência
         </h2>
-        <div className="w-full max-w-44 h-1 bg-orange-600 mt-5"></div>
+        <div className="w-full max-w-44 h-1 bg-golden mt-5"></div>
         <div className="w-full md:grid md:grid-cols-2 flex flex-col gap-5 mt-10">
           <div className="w-full h-60">
             <img
@@ -18,7 +18,7 @@ export default function Mosaic() {
           </div>
           <div className="w-full px-4 md:text-left text-center">
             <h2 className="text-zinc-100 text-2xl font-bold">Produtos</h2>
-            <div className="w-24 h-1 bg-orange-400 mt-3 md:mx-0 mx-auto"></div>
+            <div className="w-24 h-1 bg-golden mt-3 md:mx-0 mx-auto"></div>
             <p className="text-md text-zinc-50 font-thin mt-3 md:mb-5 mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, vitae quaerat. At adipisci facere nesciunt, sunt quasi nihil eligendi amet velit possimus pariatur autem vitae, rerum voluptatem temporibus est sed.</p>
             <Link href={"/"} className="border border-orange-500 py-3 px-5 rounded-md text-orange-500 hover:bg-orange-500 hover:text-zinc-50 duration-300">Visualizar produtos</Link>
           </div>
