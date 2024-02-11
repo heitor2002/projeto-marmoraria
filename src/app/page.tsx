@@ -57,7 +57,6 @@ export default function Home() {
         <div className="container max-w-4xl -translate-y-1/2 h-10 bg-golden"></div>
         <Comments />
       </section>
-      <Footer />
     </div>
   );
 }

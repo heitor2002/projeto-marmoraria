@@ -20,13 +20,13 @@ export default function Header() {
               Página Inicial
             </Link>
             <Link
-              href={"/"}
+              href={"/produtos"}
               className="text-md font-bold hover:text-orange-600 duration-300"
             >
               Produtos
             </Link>
             <Link
-              href={"/"}
+              href={"/projetos"}
               className="text-md font-bold hover:text-orange-600 duration-300"
             >
               Projetos
