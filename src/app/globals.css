@@ -61,7 +61,31 @@
   );
 }
 
-.stone-fade-name{
-  background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.8575805322128851) 57%);
+.stone-fade-name {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.8575805322128851) 57%
+  );
+}
+
+.filter-products div{
+  padding: 10px 3px;
+  background-color: rgb(234 88 12);
+  color: white;
+}
+
+.filter-products div:nth-of-type(2n){
+  background-color: white;
+  color: rgb(234 88 12);;
+}
+
+.banner-projects{
+  height: 100vh;
+  max-height: 300px;
+}
+
+.banner-opacity{
+  background-color: rgba(9, 9, 11, 0.63);
 }

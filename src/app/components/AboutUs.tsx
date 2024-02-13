@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <section className="w-full py-20 bg-slate-100">
+    <section className="w-full py-20 bg-slate-100" id="aboutus">
       <div className="container max-w-3xl grid md:grid-cols-2 grid-cols-1">
         <div className="w-full flex justify-center items-center">
             <div className="w-full max-w-xs h-96 back-image">

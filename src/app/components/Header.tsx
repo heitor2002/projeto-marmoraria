@@ -32,7 +32,7 @@ export default function Header() {
               Projetos
             </Link>
             <Link
-              href={"/"}
+              href={"/#aboutus"}
               className="text-md font-bold hover:text-orange-600 duration-300"
             >
               Quem somos
