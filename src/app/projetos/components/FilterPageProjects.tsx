@@ -28,7 +28,7 @@ export default function FilterPageProjects() {
     "Neolith",
     "Lâmina Ultracompacta",
   ];
-  const products = [
+  const projects = [
     {
       name: "Granito",
       category: "Granito",
@@ -76,18 +76,51 @@ export default function FilterPageProjects() {
   //       ? products
   //       : products.filter((p) => categoryFilters.has(p.category));
   return (
-    <main>
-      <div className="w-full banner-projects relative">
-        <img
-          src="https://plus.unsplash.com/premium_photo-1682617327331-e5a45af2ed5a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center banner-opacity">
-          <h2 className="text-white text-6xl relative z-10">Cada pedra é uma história</h2>
+    <section className="py-20 container max-w-7xl">
+      <h2 className="text-center text-zinc-900 text-3xl tracking-widest">
+        Conheça nossos projetos
+      </h2>
+      <div className="flex gap-10 mt-10">
+        <div>
+          <h2 className="text-lg mb-3">Filtrar por categoria:</h2>
+          <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
+            {category.map(name => {
+              return(
+                <option value={name} className="bg-gray-200">{name}</option>
+              )
+            })}
+          </select>
+        </div>
+        <div>
+          <h2 className="text-lg mb-3">Filtrar por ramo:</h2>
+          <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
+          <option value="Túmulos" className="bg-gray-200">Túmulos</option>
+          <option value="Galerias" className="bg-gray-200">Galerias</option>
+          <option value="Construção civil" className="bg-gray-200">Construção civil</option>
+          </select>
         </div>
       </div>
-      
-    </main>
+      <div className="grid grid-cols-4 gap-3 mt-10">
+        {projects.map((item) => {
+          return (
+            <div className="w-full border border-zinc-200">
+              <img src="" alt="" className="w-full h-52 object-cover" />
+              <div className="py-3 px-2">
+                <h2 className="text-lg font-bold">Nome da pedra</h2>
+                <h3 className="text-sm text-zinc-700">Categoria: Mármore</h3>
+                <h3 className="text-sm text-zinc-700 mb-3">
+                  Ramo: Construção civil
+                </h3>
+                <Link href={"/"}>
+                  <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
+                    Ver mais
+                  </h2>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
