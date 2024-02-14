@@ -84,9 +84,9 @@ export default function FilterPageProjects() {
         <div>
           <h2 className="text-lg mb-3">Filtrar por categoria:</h2>
           <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
-            {category.map(name => {
+            {category.map((name, index) => {
               return(
-                <option value={name} className="bg-gray-200">{name}</option>
+                <option value={name} className="bg-gray-200" key={index}>{name}</option>
               )
             })}
           </select>
@@ -101,9 +101,9 @@ export default function FilterPageProjects() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-3 mt-10">
-        {projects.map((item) => {
+        {projects.map((item, index) => {
           return (
-            <div className="w-full border border-zinc-200">
+            <div className="w-full border border-zinc-200" key={index}>
               <img src="" alt="" className="w-full h-52 object-cover" />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">Nome da pedra</h2>
@@ -111,7 +111,7 @@ export default function FilterPageProjects() {
                 <h3 className="text-sm text-zinc-700 mb-3">
                   Ramo: Construção civil
                 </h3>
-                <Link href={"/"}>
+                <Link href={"/projetos/1"}>
                   <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
                     Ver mais
                   </h2>
