@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+
+type TypeProducts={
+  name: string,
+  category: string,
+  id: number
+}
 
 export default function FilterPage() {
   const [categoryFilters, setCategoryFilters] = useState(new Set());
+  const [products, setProducts] = useState<TypeProducts[]>([])
 
   const updateFilter = (checked: boolean, categoryFilters:string) => {
     if (checked)
@@ -18,6 +25,15 @@ export default function FilterPage() {
     }
   };
 
+  const getProducts = async (url:string) => {
+    const res = await fetch(url)
+    const data = await res.json()
+    setProducts(data)
+  }
+  useEffect(() => {
+    getProducts("http://localhost:3000/api/rock")
+  },[])
+
   const category = [
     "Granito",
     "Mármore",
@@ -27,48 +43,6 @@ export default function FilterPage() {
     "Quartzo",
     "Neolith",
     "Lâmina Ultracompacta",
-  ];
-  const products = [
-    {
-      name: "Granito",
-      category: "Granito",
-      id: 1,
-    },
-    {
-      name: "Mármore",
-      category: "Mármore",
-      id: 2,
-    },
-    {
-      name: "Quartzito",
-      category: "Quartzito",
-      id: 3,
-    },
-    {
-      name: "Dekton",
-      category: "Dekton",
-      id: 4,
-    },
-    {
-      name: "Silestone",
-      category: "Silestone",
-      id: 5,
-    },
-    {
-      name: "Quartzo",
-      category: "Quartzo",
-      id: 6,
-    },
-    {
-      name: "Neolith",
-      category: "Neolith",
-      id: 7,
-    },
-    {
-      name: "Granito 2",
-      category: "Granito",
-      id: 7,
-    },
   ];
 
   const filteredProducts =
