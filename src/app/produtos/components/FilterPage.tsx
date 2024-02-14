@@ -50,11 +50,11 @@ export default function FilterPage() {
       ? products
       : products.filter((p) => categoryFilters.has(p.category));
   return (
-    <div className="container max-w-7xl z-10 grid grid-cols-12 py-20 gap-5">
+    <div className="container max-w-7xl z-10 grid grid-cols-1 lg:grid-cols-12 py-20 gap-5">
       <aside className="col-span-3">
         <h2 className="text-2xl font-bold text-slate-900 mb-3">Filtrar por:</h2>
         <div className="w-44 h-1 bg-orange-200 mb-10"></div>
-        <nav className="flex flex-col filter-products rounded-lg">
+        <nav className="flex flex-wrap gap-5 lg:gap-0 lg:flex-col filter-products rounded-lg">
           {category.map((element, index) => {
             return (
               <div
@@ -73,7 +73,7 @@ export default function FilterPage() {
           })}
         </nav>
       </aside>
-      <div className="grid col-span-9 grid-cols-3 gap-7">
+      <div className="flex flex-col items-center sm:grid col-span-9 sm:grid-cols-2 md:grid-cols-3 gap-7">
         {filteredProducts.map((item, index) => {
           return (
             <div className="flex justify-center flex-col gap-2" key={index}>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function GallerySinglePage() {
@@ -21,8 +22,12 @@ export default function GallerySinglePage() {
         <div className="w-full mt-5 grid gap-2 grid-cols-4">
           {images.map((urlImg, index) => {
             return (
-              <button className="w-full max-w-40 h-20 bg-blue-500" key={index} onClick={() =>setUrlImage(urlImg)}>
-                <img src={urlImg} alt="" className="w-full h-full"/>
+              <button
+                className="w-full max-w-40 h-20 bg-blue-500"
+                key={index}
+                onClick={() => setUrlImage(urlImg)}
+              >
+                <img src={urlImg} alt="" className="w-full h-full" />
               </button>
             );
           })}
@@ -30,9 +35,23 @@ export default function GallerySinglePage() {
       </div>
       <div className="px-5 py-8">
         <h2 className="text-4xl">Nome da pedra</h2>
-        <div className="mt-5 text-lg text-gray-600">
+        <div className="mt-5 text-lg text-gray-600 mb-10">
           <h3>Categoria: Mármore</h3>
           <h3>Ramo: Construção civil</h3>
+        </div>
+        <div className="flex flex-col gap-3 text-center">
+          <Link
+            href={"/projetos"}
+            className="w-full bg-orange-500 px-4 py-3 text-white"
+          >
+            Voltar para página de projetos
+          </Link>
+          <Link
+            href={"/projetos"}
+            className="w-full bg-green-500 px-4 py-3 text-white"
+          >
+            Entrar em contato com o vendedor
+          </Link>
         </div>
       </div>
     </main>
