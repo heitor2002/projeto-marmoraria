@@ -80,7 +80,7 @@ export default function FilterPageProjects() {
       <h2 className="text-center text-zinc-900 text-3xl tracking-widest">
         Conheça nossos projetos
       </h2>
-      <div className="flex gap-10 mt-10">
+      <div className="flex flex-col sm:flex-row gap-10 mt-10">
         <div>
           <h2 className="text-lg mb-3">Filtrar por categoria:</h2>
           <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
@@ -100,10 +100,10 @@ export default function FilterPageProjects() {
           </select>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-3 mt-10">
+      <div className="flex flex-col items-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-10">
         {projects.map((item, index) => {
           return (
-            <div className="w-full border border-zinc-200" key={index}>
+            <div className="w-full max-w-80 border border-zinc-200" key={index}>
               <img src="" alt="" className="w-full h-52 object-cover" />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">Nome da pedra</h2>

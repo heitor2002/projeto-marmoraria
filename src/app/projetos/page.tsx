@@ -11,7 +11,7 @@ export default function Projects() {
             className="w-full h-full object-cover"
           />
           <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center banner-opacity">
-            <h2 className="text-white text-6xl relative z-10">
+            <h2 className="text-white text-2xl sm:text-4xl md:text-6xl relative z-10">
               #CadaPedraUmaHistória
             </h2>
           </div>
