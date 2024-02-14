@@ -19,29 +19,29 @@ export default function SliderHome() {
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
         <SwiperSlide>
-          <div className="w-full md:h-96 h-72 rounded-2xl">
+          <div className="w-full h-80">
             <img
               src="https://static.hbt.triider.com.br/files/dynamic_content/fazer-pia-de-marmore-2937798_big.jpg"
               alt=""
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full md:h-96 h-72 rounded-2xl">
+          <div className="w-full h-80">
             <img
               src="https://marinamarmores.com.br/wp-content/uploads/2019/08/marina-marmores-34-1024x577.jpg"
               alt=""
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full md:h-96 h-72 rounded-2xl">
+          <div className="w-full h-80">
             <img
               src="https://www.cuiket.com.br/imagenes/company_photo/23220_big.jpg"
               alt=""
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover"
             />
           </div>
         </SwiperSlide>
