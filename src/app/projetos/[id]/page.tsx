@@ -7,6 +7,9 @@ export default async function SinglePageProjects(){
     return(
         <section>
             <GallerySinglePage dataProject={data[0]} />
+            <div>
+                
+            </div>
         </section>
     )
 }

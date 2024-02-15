@@ -3,15 +3,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-type TypeProducts={
-  name: string,
-  category: string,
-  id: number
+type TypeSingleProject={
+  id: Number,
+  name: String,
+  category: String,
+  branch: String,
+  urlImages: String[],
 }
 
 export default function FilterPageProjects() {
   
-  const [products, setProducts] = useState<TypeProducts[]>([])
+  const [products, setProducts] = useState<TypeSingleProject[]>([])
   const [rockCategory, setRockCategory] = useState("Todos")
 
   const category = [
@@ -38,7 +40,7 @@ export default function FilterPageProjects() {
   }
 
   useEffect(() => {
-    getProducts("http://localhost:3000/api/rock")
+    getProducts("http://localhost:3000/api/projects")
     filterProjects()
   },[])
 
@@ -78,12 +80,12 @@ export default function FilterPageProjects() {
         {products.map((item, index) => {
           return (
             <div className="w-full max-w-80 border border-zinc-200" key={index}>
-              <img src="" alt="" className="w-full h-52 object-cover" />
+              <img src={item.urlImages[0].src} alt="" className="w-full h-52 object-cover" />
               <div className="py-3 px-2">
-                <h2 className="text-lg font-bold">Nome da pedra</h2>
-                <h3 className="text-sm text-zinc-700">Categoria: Mármore</h3>
+                <h2 className="text-lg font-bold">{item.name}</h2>
+                <h3 className="text-sm text-zinc-700">Categoria: {item.category}</h3>
                 <h3 className="text-sm text-zinc-700 mb-3">
-                  Ramo: Construção civil
+                  Ramo: {item.branch}
                 </h3>
                 <Link href={"/projetos/1"}>
                   <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
