@@ -1,15 +1,8 @@
 "use client";
 
+import { TypeSingleProject } from "@/types/apiTypes";
 import Link from "next/link";
 import { useState } from "react";
-
-type TypeSingleProject={
-  id: Number,
-  name: String,
-  category: String,
-  branch: String,
-  urlImages: String[],
-}
 
 export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleProject}) {
 

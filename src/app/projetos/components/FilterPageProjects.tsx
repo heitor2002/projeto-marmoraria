@@ -2,14 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-type TypeSingleProject={
-  id: Number,
-  name: String,
-  category: String,
-  branch: String,
-  urlImages: String[],
-}
+import { TypeSingleProject } from "@/types/apiTypes";
 
 export default function FilterPageProjects() {
   
@@ -80,7 +73,7 @@ export default function FilterPageProjects() {
         {products.map((item, index) => {
           return (
             <div className="w-full max-w-80 border border-zinc-200" key={index}>
-              <img src={item.urlImages[0].src} alt="" className="w-full h-52 object-cover" />
+              <img src={item.urlImages[2].src} alt="" className="w-full h-44 object-cover" />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">{item.name}</h2>
                 <h3 className="text-sm text-zinc-700">Categoria: {item.category}</h3>
