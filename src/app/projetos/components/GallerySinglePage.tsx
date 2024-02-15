@@ -19,12 +19,12 @@ export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleP
 
   const images = [dataProject.urlImages[2].src, dataProject.urlImages[1].src, dataProject.urlImages[0].src];
   return (
-    <main className="container max-w-6xl grid grid-cols-9 py-10">
+    <main className="container max-w-6xl grid grid-cols-1 md:grid-cols-9 py-10">
       <div className="flex flex-col col-span-5">
-        <div className="w-full h-96 bg-red-400">
+        <div className="w-full md:h-72 lg:h-96 bg-red-400">
           <img src={urlImage} alt="" className="w-full h-full object-cover flex justify-center items-center" />
         </div>
-        <div className="w-full mt-5 grid gap-2 grid-cols-4">
+        <div className="w-full mt-5 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {images.map((urlImg, index) => {
             return (
               <button
@@ -38,7 +38,7 @@ export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleP
           })}
         </div>
       </div>
-      <div className="px-5 py-8 col-span-4">
+      <div className="px-5 py-8 col-span-4 flex lg:block flex-col justify-center items-center">
         <h2 className="text-4xl">{dataProject.name}</h2>
         <div className="mt-5 text-lg text-gray-600 mb-10">
           <h3>Categoria: {dataProject.category}</h3>
