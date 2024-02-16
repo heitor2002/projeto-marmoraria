@@ -39,7 +39,7 @@ export default function SwiperProjects({
         {dataProjects.map((data, index) => {
           return (
             <SwiperSlide key={index}>
-              <div className="w-full max-w-80 border border-zinc-400" key={index}>
+              <div className="w-full max-w-80 border border-zinc-400">
               <img src={data.urlImages[2].src} alt="" className="w-full h-36 object-cover" />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">{data.name}</h2>

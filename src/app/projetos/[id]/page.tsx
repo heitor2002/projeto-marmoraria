@@ -9,8 +9,6 @@ export default async function SinglePageProjects() {
   const res = await fetch("http://localhost:3000/api/projects");
   const data: TypeSingleProject[] = await res.json();
 
-  console.log(data);
-
   return (
     <section>
       <GallerySinglePage dataProject={data[0]} />

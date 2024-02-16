@@ -13,13 +13,14 @@ export default function Comments() {
             <div>
               <h2 className="text-orange-500 font-bold">Pedro Alves</h2>
               <div className="flex gap-1 text-orange-500">
-                {count.map((item) => {
+                {count.map((item, index) => {
                   return (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-3 h-3"
+                      key={index}
                     >
                       <path
                         fillRule="evenodd"
@@ -48,13 +49,14 @@ export default function Comments() {
             <div>
               <h2 className="text-orange-500 font-bold">Pedro Alves</h2>
               <div className="flex gap-1 text-orange-500">
-                {count.map((item) => {
+                {count.map((item, index) => {
                   return (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-3 h-3"
+                      key={index}
                     >
                       <path
                         fillRule="evenodd"
@@ -83,13 +85,14 @@ export default function Comments() {
             <div>
               <h2 className="text-orange-500 font-bold">Pedro Alves</h2>
               <div className="flex gap-1 text-orange-500">
-                {count.map((item) => {
+                {count.map((item, index) => {
                   return (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className="w-3 h-3"
+                      key={index}
                     >
                       <path
                         fillRule="evenodd"
