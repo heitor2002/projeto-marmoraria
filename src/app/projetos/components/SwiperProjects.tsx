@@ -22,10 +22,20 @@ export default function SwiperProjects({
     <div>
       <Swiper
         modules={[Pagination, A11y, Autoplay]}
-        slidesPerView={4}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         spaceBetween={10}
+        breakpoints={{
+          630: {
+            slidesPerView: 2
+          },
+          920: {
+            slidesPerView: 3
+          },
+          1300: {
+            slidesPerView: 4
+          },
+        }}
       >
         {dataProjects.map((data, index) => {
           return (

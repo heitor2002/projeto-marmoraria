@@ -3,11 +3,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { TypeSingleProject } from "@/types/apiTypes";
+import { useSearchParams } from "next/navigation";
 
 export default function FilterPageProjects() {
-  
-  const [products, setProducts] = useState<TypeSingleProject[]>([])
-  const [rockCategory, setRockCategory] = useState("Todos")
+  const searchParams = useSearchParams();
+
+  var nameParams = searchParams.get("name");
+  var categoryParams = searchParams.get("category");
+
+  const [products, setProducts] = useState<TypeSingleProject[]>([]);
+  const [rockCategory, setRockCategory] = useState("Todos");
+  const [branchCategory, setBranchCategory] = useState("Todos");
 
   const category = [
     "Granito",
@@ -17,32 +23,55 @@ export default function FilterPageProjects() {
     "Silestone",
     "Quartzo",
     "Neolith",
-    "Lâmina Ultracompacta",
   ];
-  
-  const getProducts = async (url:string) => {
-    const res = await fetch(url)
-    const data = await res.json()
-    setProducts(data)
-  }
 
-  const filterProjects = () => {
-    if(rockCategory !== "Todos"){
-      console.log("Diferente")
+  const branch = ["Túmulos", "Galerias", "Construção Civil"];
+
+  const resetFilterByParams = () => {
+    if (nameParams || categoryParams){
+      nameParams = ""
+      categoryParams = ""
     }
   }
 
+  const getProducts = async (url: string) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!nameParams) {
+      setProducts(data);
+    } else {
+      var filterByName = data.filter(
+        (item: TypeSingleProject) => item.name === nameParams
+      );
+      setProducts(filterByName);
+    }
+
+    if(rockCategory && branchCategory !== "Todos"){
+      var filterByCategoryAndBranch = data.filter(
+        (item: TypeSingleProject) =>  item.category === rockCategory &&item.branch === branchCategory
+      );
+      setProducts(filterByCategoryAndBranch);
+    }
+
+    if (rockCategory !== "Todos") {
+      var filterByCategory = data.filter(
+        (item: TypeSingleProject) => item.category === rockCategory
+      );
+      setProducts(filterByCategory);
+    }
+
+    if(branchCategory !== "Todos"){
+      var filterByBranch = data.filter(
+        (item: TypeSingleProject) => item.branch === branchCategory
+      );
+      setProducts(filterByBranch);
+    }
+  };
+
   useEffect(() => {
-    getProducts("http://localhost:3000/api/projects")
-    filterProjects()
-  },[])
+    getProducts("http://localhost:3000/api/projects");
+  }, [rockCategory, branchCategory]);
 
-
-
-  //   const filteredProducts =
-  //     categoryFilters.size === 0
-  //       ? products
-  //       : products.filter((p) => categoryFilters.has(p.category));
   return (
     <section className="py-20 container max-w-7xl">
       <h2 className="text-center text-zinc-900 text-3xl tracking-widest">
@@ -51,21 +80,42 @@ export default function FilterPageProjects() {
       <div className="flex flex-col sm:flex-row gap-10 mt-10">
         <div>
           <h2 className="text-lg mb-3">Filtrar por categoria:</h2>
-          <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
-            <option value={rockCategory}>{rockCategory}</option>
+          <select
+            name="category"
+            id="category"
+            className="border border-zinc-300 py-2 px-4"
+            value={rockCategory}
+            onChange={(e) => setRockCategory(e.target.value)}
+            onClick={resetFilterByParams}
+          >
+            <option value={"Todos"}>{"Todos"}</option>
             {category.map((name, index) => {
-              return(
-                <option value={name} className="bg-gray-200" key={index} onChange={() => setRockCategory(name)}>{name}</option>
-              )
+              return (
+                <option value={name} className="bg-gray-200" key={index}>
+                  {name}
+                </option>
+              );
             })}
           </select>
         </div>
         <div>
           <h2 className="text-lg mb-3">Filtrar por ramo:</h2>
-          <select name="category" id="category" className="border border-zinc-300 py-2 px-4">
-          <option value="Túmulos" className="bg-gray-200">Túmulos</option>
-          <option value="Galerias" className="bg-gray-200">Galerias</option>
-          <option value="Construção civil" className="bg-gray-200">Construção civil</option>
+          <select
+            name="category"
+            id="category"
+            className="border border-zinc-300 py-2 px-4"
+            value={branchCategory}
+            onChange={(e) => setBranchCategory(e.target.value)}
+            onClick={resetFilterByParams}
+          >
+            <option value={"Todos"}>{"Todos"}</option>
+            {branch.map((dataBranch, index) => {
+              return (
+                <option value={dataBranch} className="bg-gray-200" key={index}>
+                  {dataBranch}
+                </option>
+              );
+            })}
           </select>
         </div>
       </div>
@@ -73,10 +123,16 @@ export default function FilterPageProjects() {
         {products.map((item, index) => {
           return (
             <div className="w-full max-w-80 border border-zinc-200" key={index}>
-              <img src={item.urlImages[2].src} alt="" className="w-full h-44 object-cover" />
+              <img
+                src={item.urlImages[2].src}
+                alt=""
+                className="w-full h-44 object-cover"
+              />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">{item.name}</h2>
-                <h3 className="text-sm text-zinc-700">Categoria: {item.category}</h3>
+                <h3 className="text-sm text-zinc-700">
+                  Categoria: {item.category}
+                </h3>
                 <h3 className="text-sm text-zinc-700 mb-3">
                   Ramo: {item.branch}
                 </h3>
