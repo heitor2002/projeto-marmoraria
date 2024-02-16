@@ -17,7 +17,6 @@ export default function SwiperProjects({
   dataProjects: TypeSingleProject[];
 }) {
 
-    console.log(dataProjects)
   return (
     <div>
       <Swiper

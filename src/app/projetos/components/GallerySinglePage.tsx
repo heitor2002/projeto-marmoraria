@@ -6,8 +6,6 @@ import { useState } from "react";
 
 export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleProject}) {
 
-  console.log(dataProject)
-
   const [urlImage, setUrlImage] = useState(dataProject.urlImages[2].src);
 
   const images = [dataProject.urlImages[2].src, dataProject.urlImages[1].src, dataProject.urlImages[0].src];

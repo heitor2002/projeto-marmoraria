@@ -4,6 +4,7 @@ import SwiperProjects from "../components/SwiperProjects";
 import Comments from "@/app/components/Comments";
 import Mosaic from "@/app/components/Mosaic";
 
+
 export default async function SinglePageProjects() {
   const res = await fetch("http://localhost:3000/api/projects");
   const data: TypeSingleProject[] = await res.json();

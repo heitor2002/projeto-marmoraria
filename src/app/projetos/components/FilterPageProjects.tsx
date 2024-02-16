@@ -136,7 +136,7 @@ export default function FilterPageProjects() {
                 <h3 className="text-sm text-zinc-700 mb-3">
                   Ramo: {item.branch}
                 </h3>
-                <Link href={"/projetos/1"}>
+                <Link href={"/projetos/" + item.id}>
                   <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
                     Ver mais
                   </h2>
