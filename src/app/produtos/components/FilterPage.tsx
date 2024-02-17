@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 type TypeProducts={
-  name: string,
-  category: string,
-  urlImage: string
+  id: string,
+  product_name: string,
+  product_category: string,
+  product_image: string,
 }
 
 export default function FilterPage() {
@@ -31,7 +32,7 @@ export default function FilterPage() {
     setProducts(data)
   }
   useEffect(() => {
-    getProducts("http://localhost:3000/api/rock")
+    getProducts("http://localhost:3000/api/products")
   },[])
 
   const category = [
@@ -47,7 +48,7 @@ export default function FilterPage() {
   const filteredProducts =
     categoryFilters.size === 0
       ? products
-      : products.filter((p) => categoryFilters.has(p.category));
+      : products.filter((p) => categoryFilters.has(p.product_category));
   return (
     <div className="container max-w-7xl z-10 grid grid-cols-1 lg:grid-cols-12 py-20 gap-5">
       <aside className="col-span-3">
@@ -78,16 +79,16 @@ export default function FilterPage() {
             <div className="flex justify-center flex-col gap-2" key={index}>
               <div className="relative rounded-md">
                 <img
-                  src={item.urlImage}
+                  src={item.product_image}
                   alt=""
                   className="w-full h-60 object-cover rounded-md"
                 />
                 <h2 className="p-3 text-lg font-bold absolute bottom-0 left-0 w-full text-white stone-fade-name rounded-md">
-                  {item.name}
+                  {item.product_name}
                 </h2>
               </div>
               <Link
-                href={"/projetos?name=" + item.name + "&category=" + item.category}
+                href={"/projetos?name=" + item.product_name + "&category=" + item.product_category}
                 className="w-full bg-transparent border border-orange-500 text-center text-orange-500 rounded-md py-2 hover:bg-orange-500 hover:text-white duration-200"
               >
                 Visualizar projetos
