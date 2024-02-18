@@ -1,8 +1,8 @@
 export type TypeSingleProject = {
-  id: Number;
-  name: String;
-  category: String;
-  branch: String;
+  id: number;
+  name: string;
+  category: string;
+  branch: string;
   urlImages: UrlImage[];
 };
 
