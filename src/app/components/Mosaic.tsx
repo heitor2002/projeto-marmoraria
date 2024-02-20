@@ -11,7 +11,7 @@ export default function Mosaic() {
         <div className="w-full md:grid md:grid-cols-2 flex flex-col gap-5 mt-10">
           <div className="w-full h-60">
             <img
-              src="https://www.cliquearquitetura.com.br/public/Painel/midia/imagem/full/bancadas_de_cozinha_em_granito_preto_absoluto_6218.jpg"
+              src="https://marmoraria-storage.s3.sa-east-1.amazonaws.com/tumulo-modelo-home.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
@@ -55,7 +55,7 @@ export default function Mosaic() {
           </div>
           <div className="w-full h-60 md:order-4 order-3 md:mt-0 mt-10">
             <img
-              src="https://www.marmorariamasterpedras.com.br/wp-content/uploads/2023/01/Marmoraria-Feira-das-Pedras-Marmores-e-Granitos.jpg"
+              src="https://marmoraria-storage.s3.sa-east-1.amazonaws.com/pia-modelo-home.jpg"
               alt=""
               className="w-full h-full object-cover"
             />
