@@ -6,7 +6,7 @@ import AboutUs from "./components/AboutUs";
 import Mosaic from "./components/Mosaic";
 import Comments from "./components/Comments";
 import SectionProjectsHome from "./components/SectionProjectsHome";
-import bgColor from "../../public/banner-home.jpg"
+import bgColor from "../../public/banner-home.jpg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,26 +18,30 @@ export default function Home() {
   return (
     <div>
       <section className="bg-zinc-950 relative">
-      <div className="container lg:max-w-6xl max-w-lg relative z-10">
-        <main className="lg:grid lg:grid-cols-2 flex flex-col items-center gap-5 py-20">
-          <div className="flex flex-col gap-3">
-            <Image alt="logo" src={logo} />
-            <p className="mt-10 text-md text-zinc-50 lg:text-left text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              impedit facere, qui at eveniet assumenda dignissimos non eaque
-              aliquam neque aliquid consequatur quam itaque cupiditate minus,
-              dolore laboriosam voluptates hic.
-            </p>
-            <Link
-              href={"/"}
-              className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 lg:mx-0 mx-auto"
-            >
-              Visualizar trabalhos
-            </Link>
-          </div>
-        </main>
-      </div>
-      <img src="https://images.unsplash.com/photo-1526868621613-18bc2df51131?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="absolute w-full h-full top-0 left-0 object-cover z-0 brightness-50" />
+        <div className="container lg:max-w-6xl max-w-lg relative z-10">
+          <main className="lg:grid lg:grid-cols-2 flex flex-col items-center gap-5 py-20">
+            <div className="flex flex-col gap-3">
+              <Image alt="logo" src={logo} />
+              <p className="mt-10 text-md text-zinc-50 lg:text-left text-center">
+                Bem-vindo à Marmoraria Decore, onde a excelência em pedras
+                naturais encontra a arte do design. Somos uma marmoraria
+                dedicada a transformar espaços com a beleza atemporal e a
+                elegância única dos materiais que oferecemos.
+              </p>
+              <Link
+                href={"/"}
+                className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 lg:mx-0 mx-auto"
+              >
+                Visualizar trabalhos
+              </Link>
+            </div>
+          </main>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1526868621613-18bc2df51131?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          className="absolute w-full h-full top-0 left-0 object-cover z-0 brightness-50"
+        />
       </section>
       <SectionProjectsHome />
       <section className="py-10 relative z-10">
@@ -48,7 +52,11 @@ export default function Home() {
           </h2>
           <GalleryHome />
         </div>
-          <Image alt="" src={bgColor} className="absolute w-full h-full top-0 left-0 object-cover z-0" />
+        <Image
+          alt=""
+          src={bgColor}
+          className="absolute w-full h-full top-0 left-0 object-cover z-0"
+        />
       </section>
       <AboutUs />
       <section>

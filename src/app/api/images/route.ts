@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { query } from "@/app/lib/db";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 
 const s3Client = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_S3_REGION,
@@ -29,11 +29,11 @@ async function uploadFileToS3(file: File, fileName: string) {
 }
 
 export async function GET() {
-  const images = await query({
-    query: "SELECT * FROM db_images",
-    values: [],
-  });
-  return NextResponse.json(images);
+  const products = await query({
+    query:"SELECT * FROM db_images",
+    values: []
+  })
+  return NextResponse.json(products)
 }
 
 export async function POST(request: NextRequest) {

@@ -53,7 +53,7 @@ export default function SendImage() {
       </button>
 
       {selectedImage && (
-        <div className="w-full max-w-2xl md:h-72 lg:h-96">
+        <div className="w-full max-w-2xl h-96 py-5">
           <img
             src={selectedImage}
             alt=""
