@@ -1,9 +1,9 @@
 export default function SectionProjectsHome() {
   const urlImages:string[] = [
+    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/marmore_branco_parana.jpg",
     "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/tumulo-modelo-home.jpg",
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/pia-modelo-home-2.jpg",
     "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/pia-modelo-home.jpg",
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/tumulo-modelo-home-2.jpg",
+    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/marmore_calacata_matarazzo_2.jpg",
   ]
   return (
     <section className="bg-zinc-100 relative py-16">

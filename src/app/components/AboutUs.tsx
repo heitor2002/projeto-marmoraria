@@ -19,13 +19,13 @@ export default function AboutUs() {
             <div className="w-full max-w-32 h-1 bg-orange-600 mt-5"></div>
           </div>
           <p className="text-sm md:text-right text-center mt-10">
-            Há 5 anos, temos o orgulho de oferecer uma vasta variedade de
+            Há 12 anos atuando, temos o orgulho de oferecer uma vasta variedade de
             mármores, granitos, quartzitos e outras pedras naturais de todo o
             mundo. Cada peça em nossa coleção é cuidadosamente selecionada,
             refletindo a beleza atemporal e a singularidade que só as pedras
             naturais podem oferecer.
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             O que nos diferencia na Marmoraria Decore não é apenas a
             qualidade dos nossos produtos, mas também o compromisso com a
             excelência em cada projeto. Nossa equipe trabalha em estreita

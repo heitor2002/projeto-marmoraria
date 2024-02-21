@@ -11,7 +11,7 @@ export default function Mosaic() {
         <div className="w-full md:grid md:grid-cols-2 flex flex-col gap-5 mt-10">
           <div className="w-full h-60">
             <img
-              src="https://marmoraria-storage.s3.sa-east-1.amazonaws.com/tumulo-modelo-home.jpg"
+              src="https://marmoraria-storage.s3.sa-east-1.amazonaws.com/quartzito_cristallo_translucido.jpg"
               alt=""
               className="w-full h-full object-cover"
             />

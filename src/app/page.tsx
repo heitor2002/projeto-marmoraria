@@ -29,7 +29,7 @@ export default function Home() {
                 elegância única dos materiais que oferecemos.
               </p>
               <Link
-                href={"/"}
+                href={"/projetos"}
                 className="lg:px-0 px-10 py-3 border border-orange-600 text-center max-w-xs font-bold bg-orange-600 text-white duration-300 text-md mt-5 hover:scale-105 hover:bg-orange-600 lg:mx-0 mx-auto"
               >
                 Visualizar trabalhos

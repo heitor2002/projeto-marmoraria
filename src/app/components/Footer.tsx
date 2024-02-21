@@ -10,13 +10,13 @@ export default function Footer() {
             <Link href={"/"} className="text-zinc-500 hover:text-white">
               Página inicial
             </Link>
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/produtos"} className="text-zinc-500 hover:text-white">
               Produtos
             </Link>
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/projetos"} className="text-zinc-500 hover:text-white">
               Projetos
             </Link>
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/#aboutus"} className="text-zinc-500 hover:text-white">
               Sobre nós
             </Link>
           </nav>
@@ -35,7 +35,7 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl font-bold">Contato</h2>
           <nav className="flex flex-col mt-5 gap-5">
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/contato"} className="text-zinc-500 hover:text-white">
               <h2>Marcos Vendedor:</h2>
               <div className="flex gap-3 mt-3 sm:justify-start justify-center">
                 <svg
@@ -55,7 +55,7 @@ export default function Footer() {
                 <h2>(18) 9 9146-5072</h2>
               </div>
             </Link>
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/contato"} className="text-zinc-500 hover:text-white">
               <div className="flex gap-3 mt-3 sm:justify-start justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export default function Footer() {
                 <h2>(18) 9 9668-0223</h2>
               </div>
             </Link>
-            <Link href={"/"} className="text-zinc-500 hover:text-white">
+            <Link href={"/contato"} className="text-zinc-500 hover:text-white">
               <h2>Escritório:</h2>
               <div className="flex gap-3 mt-3 sm:justify-start justify-center">
                 <svg
