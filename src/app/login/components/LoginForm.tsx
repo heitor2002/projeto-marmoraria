@@ -1,33 +1,38 @@
 "use client";
 
-import useFetch from "@/app/lib/useFetch";
-import { ChangeEvent, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { setCookie } from "cookies-next";
+import { useState } from "react";
+// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-
   const [user, setUser] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState<String>("");
+  const router = useRouter()
 
-  const onChangeInput = (e) => setUser({...user, [e.target.name]:e.target.value})
+  const onChangeInput = (e) =>
+    setUser({ ...user, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(user);
-    try{
+    try {
       const response = await fetch("/api/users", {
         method: "POST",
-        body: JSON.stringify(user)
-      })
+        body: JSON.stringify(user),
+      });
 
-      const json = await response.json()
-      console.log(json)
-    }catch(error){
+      const json = await response.json();
+      setCookie("authorization", json)
+      router.push("/")
 
+
+    } catch (error) {
+      console.log(error)
     }
   };
   return (
@@ -64,6 +69,9 @@ export default function LoginForm() {
         type="submit"
         className="bg-emerald-700 hover:bg-green-700 duration-200 cursor-pointer py-3 text-white round"
       />
+      {/* {error && (
+        <div>{error}</div>
+      )} */}
     </form>
   );
 }

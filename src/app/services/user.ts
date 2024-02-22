@@ -40,6 +40,5 @@ export async function userLogin(body: TypeUserLogin) {
   if (user.password !== body.password) throw new Error("Senha incorreta");
 
   const token = createToken(user);
-  console.log(user);
   return token;
 }
