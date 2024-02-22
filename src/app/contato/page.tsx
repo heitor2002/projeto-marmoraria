@@ -4,7 +4,7 @@ import Card from "./components/Card";
 export default function Contact() {
   return (
     <section className="grid grid-cols-2 min-h-screen">
-      <main className="flex justify-end bg-zinc-200 text-zinc-900">
+      <main className="flex justify-end bg-zinc-100 text-zinc-900">
         <div className="w-full max-w-lg flex justify-center items-start flex-col px-3">
           <h2 className="text-3xl">
             Gostou do nosso trabalho? <br /> Entre em{" "}
