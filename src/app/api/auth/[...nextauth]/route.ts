@@ -35,6 +35,19 @@ const nextAuthOptions: NextAuthOptions = {
   pages: {
     signIn: "/login",
   },
+  callbacks: {
+    async jwt({token, user}) {
+      user && (token.user = user)
+      console.log(user)
+      return token
+    },
+
+    async session({session, token}){
+      
+      return session
+    }
+  }
+  
 };
 
 const handler = NextAuth(nextAuthOptions);

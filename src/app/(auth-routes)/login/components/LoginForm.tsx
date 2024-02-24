@@ -34,31 +34,30 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-zinc-100 w-full px-3 py-5 flex flex-col gap-5 text-zinc-900 rounded-lg"
+      className="w-full px-3 py-5 flex flex-col gap-5 text-zinc-900 rounded-lg"
     >
-      <h2 className="text-center text-lg font-bold tracking-wide">
-        Login do administrador:
-      </h2>
       <div className="flex flex-col gap-1">
-        <label htmlFor="email">E-mail:</label>
+        <label htmlFor="email" className="text-zinc-100">E-mail:</label>
         <input
           type="text"
           name="email"
           id="email"
-          className="p-2 border border-zinc-700"
+          className="p-2 border border-zinc-700 bg-transparent text-zinc-300"
           onChange={onChangeInput}
           value={user.email}
+          required
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="password">Senha:</label>
+        <label htmlFor="password" className="text-zinc-100">Senha:</label>
         <input
           type="password"
           name="password"
           id="password"
-          className="p-2 border border-zinc-700"
-          value={user.password}
+          className="p-2 border border-zinc-700 bg-transparent text-zinc-300"
           onChange={onChangeInput}
+          value={user.password}
+          required
         />
       </div>
       <input
