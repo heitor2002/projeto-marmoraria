@@ -8,6 +8,7 @@ type TypeUserLogin = {
 };
 
 type TypeUserJWT = {
+  id: string,
   email: string;
   name: string;
   hierarchy: string;
@@ -15,7 +16,7 @@ type TypeUserJWT = {
 
 function createToken(user: TypeUserJWT) {
   return jwt.sign(
-    { email: user.email, name: user.name, hierarchy: user.hierarchy },
+    { id:user.id, email: user.email, name: user.name, hierarchy: user.hierarchy },
     SECRET_KEY
   );
 }
@@ -39,5 +40,7 @@ export async function userLogin(body: TypeUserLogin) {
   if (user.password !== body.password) throw new Error("Senha incorreta");
 
   const token = createToken(user);
-  return token;
+  const newUser = readToken(token);
+
+  return newUser;
 }

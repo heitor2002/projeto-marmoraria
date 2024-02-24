@@ -11,10 +11,25 @@ interface PrivateLayoutProps {
 export default async function PrivateLayout({ children }: PrivateLayoutProps) {
   const session = await getServerSession(nextAuthOptions);
 
-  console.log(session)
-
   if (!session) {
     redirect("/login");
   }
-  return <NextAuthSessionProvider>{children}</NextAuthSessionProvider>;
+  return (
+    <NextAuthSessionProvider>
+      <section className="min-h-screen text-zinc-100 bg-zinc-900">
+        <div className="container max-w-6xl py-20">
+          <h2 className="text-4xl font-bold">
+            Seja bem-vindo, {session?.user.name}
+          </h2>
+          <h3 className="mt-3 text-lg font-bold">
+            Cargo:{" "}
+            <span className="capitalize text-yellow-400">
+              {session?.user.hierarchy}
+            </span>
+          </h3>
+          {children}
+        </div>
+      </section>
+    </NextAuthSessionProvider>
+  );
 }

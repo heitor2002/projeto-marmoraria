@@ -14,7 +14,7 @@ const nextAuthOptions: NextAuthOptions = {
         const response = await fetch("http://localhost:3000/api/users", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-type": "application/json",
           },
           body: JSON.stringify({
             email: credentials?.email,
@@ -38,12 +38,11 @@ const nextAuthOptions: NextAuthOptions = {
   callbacks: {
     async jwt({token, user}) {
       user && (token.user = user)
-      console.log(user)
       return token
     },
 
     async session({session, token}){
-      
+      session.user = token.user as any
       return session
     }
   }
