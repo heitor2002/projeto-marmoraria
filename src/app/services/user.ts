@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import useFetch from "../lib/useFetch";
 
 const SECRET_KEY = `${process.env.SECRET_KEY_JSON_WEB_TOKEN}`;
 
