@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from "react";
 
+interface ImagesProps {
+  id: string;
+  url_image: string;
+}
+
 export default function useFetch(url: string) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ImagesProps[]>([]);
 
   const fetchApi = async (url: string) => {
     const response = await fetch(url);
