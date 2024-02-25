@@ -88,3 +88,26 @@
   background-size: cover;
   background-position: right;
 }
+
+.nav-links-admin-page a{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.nav-links-admin-page a:hover{
+  color: rgb(233, 212, 24);
+  border-bottom: 1px solid rgb(233, 212, 24);
+}
+
+.hidden-delete-button{
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  opacity: 0;
+  transition: .3s;
+}
+
+.img-delete-button-animation:hover .hidden-delete-button{
+  bottom: 0;
+  opacity: 1;
+}
