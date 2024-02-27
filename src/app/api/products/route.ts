@@ -18,6 +18,7 @@ export async function POST(request:NextRequest){
     values: [id, product_name, product_category, product_image]
   })
 
+  // return NextResponse.json({id, product_name, product_category, product_image}, {status: 201})
   return NextResponse.json({message: "Produtos cadastrados com sucesso!"}, {status: 201})
 
 }

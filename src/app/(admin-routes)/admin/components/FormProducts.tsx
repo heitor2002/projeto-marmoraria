@@ -9,7 +9,6 @@ interface ProductProps {
   id: string;
   product_name: string;
   product_category: string;
-  product_image: string;
 }
 
 export default function FormProducts() {
@@ -19,13 +18,10 @@ export default function FormProducts() {
 
   const [image, setImage] = useState<string>("");
 
-  const [copyColor, setCopyColor] = useState<string>("");
-  const [copyMessage, setCopyMessage] = useState<boolean>(false);
   const [product, setProduct] = useState<ProductProps>({
     id: uuidv4(),
     product_name: "",
     product_category: "",
-    product_image: "",
   });
 
   const [productMessage, setProductMessage] = useState(false)
@@ -40,31 +36,20 @@ export default function FormProducts() {
     "Neolith",
   ];
 
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(image);
-      setCopyColor("rgb(5 150 105)");
-      setCopyMessage(true)
-      setTimeout(() => {
-        setCopyColor("rgb(39 39 42)");
-        setCopyMessage(false)
-      }, 1000);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const onChangeInput = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const product_image = image
+    const {id, product_name, product_category } = product
+
     try{
       const options = {
         method: "POST",
         headers: {"Content-type":"application/json"},
-        body: JSON.stringify(product)
+        body: JSON.stringify({id, product_name, product_category, product_image})
       }
 
       const response = await fetch("/api/products", options)
@@ -78,12 +63,14 @@ export default function FormProducts() {
           id: uuidv4(),
           product_category: "",
           product_name: "",
-          product_image: ""
         })
       }, 2000)
+      
+      router.refresh()
     }catch(error){
       console.log(error)
     }
+
   };
   return (
     <form
@@ -126,47 +113,13 @@ export default function FormProducts() {
         {product.product_name !== "" && (
           <div className="flex flex-col gap-1">
             <label htmlFor="product_image">Imagem do produto:</label>
-            <input
-              type="text"
-              id="product_image"
-              name="product_image"
-              className="bg-transparent border border-zinc-500 text-zinc-300 py-1 px-2"
-              value={product.product_image}
-              onChange={onChangeInput}
-              required
-            />
+            {image && <h2 className="text-sm">{image}</h2>}
           </div>
         )}
         {product.product_name !== "" && (
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
-              {image !== "" && (
-                <div
-                  className="bg-zinc-800 p-2 rounded-lg animate-bounce cursor-pointer"
-                  onClick={copyToClipboard}
-                  style={{
-                    backgroundColor: copyColor,
-                    transition: ".3s",
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z"
-                    />
-                  </svg>
-                </div>
-              )}
-              {!copyMessage && <h2 className="text-xs">{image}</h2>}
-              {copyMessage && <h3 className="text-emerald-600 text-sm">Link copiado!</h3>}
+              {image && <img src={image} alt="image" />}
             </div>
             {productMessage && <h2 className="text-emerald-600 text-sm">Produto cadastrado com sucesso!</h2>}
             <input
