@@ -5,8 +5,8 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 const s3Client = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_S3_REGION,
   credentials: {
-    accessKeyId: `${process.env.NEXT_PUBLIC_AWS_S3_ACCESS_KEY_ID}`,
-    secretAccessKey: `${process.env.NEXT_PUBLIC_AWS_S3_SECRET_ACCESS_KEY}`,
+    accessKeyId: `${process.env.NEXT_AWS_S3_ACCESS_KEY_ID}`,
+    secretAccessKey: `${process.env.NEXT_AWS_S3_SECRET_ACCESS_KEY}`,
   },
 });
 
@@ -15,7 +15,7 @@ async function uploadFileToS3(file: File, fileName: string) {
   console.log(fileName);
 
   const params = {
-    Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
+    Bucket: process.env.NEXT_AWS_S3_BUCKET_NAME,
     Key: `${fileName}`,
     Body: fileBuffer,
     ContentType: "image/jpg",
