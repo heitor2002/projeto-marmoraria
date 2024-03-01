@@ -5,7 +5,10 @@ import Link from "next/link";
 import { TypeSingleProject } from "@/types/apiTypes";
 import { useSearchParams } from "next/navigation";
 
-export default function FilterPageProjects() {
+export default function FilterPageProjects({projects}:{projects:TypeSingleProject[]}) {
+
+  console.log(projects)
+
   const searchParams = useSearchParams();
 
   var nameParams = searchParams.get("name");
@@ -28,15 +31,15 @@ export default function FilterPageProjects() {
   const branch = ["Túmulos", "Galerias", "Construção Civil"];
 
   const resetFilterByParams = () => {
-    if (nameParams || categoryParams){
-      nameParams = ""
-      categoryParams = ""
+    if (nameParams || categoryParams) {
+      nameParams = "";
+      categoryParams = "";
     }
-  }
+  };
 
-  const getProducts = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
+  // const getProducts = async (url: string) => {
+    const getProducts = () => {
+    const data = projects;
     if (!nameParams) {
       setProducts(data);
     } else {
@@ -46,9 +49,10 @@ export default function FilterPageProjects() {
       setProducts(filterByName);
     }
 
-    if(rockCategory && branchCategory !== "Todos"){
+    if (rockCategory && branchCategory !== "Todos") {
       var filterByCategoryAndBranch = data.filter(
-        (item: TypeSingleProject) =>  item.category === rockCategory &&item.branch === branchCategory
+        (item: TypeSingleProject) =>
+          item.category === rockCategory && item.branch === branchCategory
       );
       setProducts(filterByCategoryAndBranch);
     }
@@ -60,7 +64,7 @@ export default function FilterPageProjects() {
       setProducts(filterByCategory);
     }
 
-    if(branchCategory !== "Todos"){
+    if (branchCategory !== "Todos") {
       var filterByBranch = data.filter(
         (item: TypeSingleProject) => item.branch === branchCategory
       );
@@ -69,8 +73,9 @@ export default function FilterPageProjects() {
   };
 
   useEffect(() => {
-    getProducts("http://localhost:3000/api/projects");
+    getProducts();
   }, [rockCategory, branchCategory]);
+
 
   return (
     <section className="py-20 container max-w-7xl">
@@ -121,10 +126,12 @@ export default function FilterPageProjects() {
       </div>
       <div className="flex flex-col items-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-10">
         {products.map((item, index) => {
+          const image = JSON.parse(item.images)
+          console.log(image)
           return (
             <div className="w-full max-w-80 border border-zinc-200" key={index}>
               <img
-                src={item.urlImages[2].src}
+                src={image[0].url_image}
                 alt=""
                 className="w-full h-44 object-cover"
               />

@@ -1,16 +1,12 @@
 export type TypeSingleProject = {
-  id: number;
+  id: string;
   name: string;
   category: string;
   branch: string;
-  urlImages: UrlImage[];
+  images?: UrlImage[];
 };
 
 interface UrlImage {
-  src: string
-  height: number
-  width: number
-  blurDataURL: string
-  blurWidth: number
-  blurHeight: number
+  id: string,
+  url_image: JSON,
 }

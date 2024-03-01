@@ -4,14 +4,14 @@ import { TypeSingleProject } from "@/types/apiTypes";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleProject}) {
+export default function GallerySinglePage() {
+  // {dataProject}:{dataProject:TypeSingleProject}
+  // const [urlImage, setUrlImage] = useState(dataProject.urlImages[2].src);
 
-  const [urlImage, setUrlImage] = useState(dataProject.urlImages[2].src);
-
-  const images = [dataProject.urlImages[2].src, dataProject.urlImages[1].src, dataProject.urlImages[0].src];
+  // const images = [dataProject.urlImages[2].src, dataProject.urlImages[1].src, dataProject.urlImages[0].src];
   return (
     <main className="container max-w-6xl grid grid-cols-1 md:grid-cols-9 py-10">
-      <div className="flex flex-col col-span-5">
+      {/* <div className="flex flex-col col-span-5">
         <div className="w-full md:h-72 lg:h-96 bg-red-400">
           <img src={urlImage} alt="" className="w-full h-full object-cover flex justify-center items-center" />
         </div>
@@ -49,7 +49,7 @@ export default function GallerySinglePage({dataProject}:{dataProject:TypeSingleP
             Entrar em contato com o vendedor
           </Link>
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }
