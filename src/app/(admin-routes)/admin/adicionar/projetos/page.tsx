@@ -1,7 +1,7 @@
 import FormProjects from "../../components/FormProjects";
 
 export default async function ProjectForm(){
-    const response = await fetch("http://localhost:3000/api/images")
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/images`)
     const images = await response.json()
 
     return(

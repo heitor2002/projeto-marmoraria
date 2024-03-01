@@ -47,7 +47,7 @@ export default function FormProjects({
         body: JSON.stringify({id, branch, category, name, images})
       }
 
-      const response = await fetch("http://localhost:3000/api/projects", options)
+      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/projects`, options)
       const json = await response.json()
 
       console.log(json)

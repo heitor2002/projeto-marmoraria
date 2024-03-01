@@ -11,10 +11,10 @@ type Params = {
 };
 
 export default async function SinglePageProjects({ params: { id } }: Params) {
-  const response = await fetch("http://localhost:3000/api/projects/" + id);
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/projects/${id}`);
   const singleData = await response.json()
 
-  const responseAll = await fetch("http://localhost:3000/api/projects/")
+  const responseAll = await fetch(`${process.env.NEXTAUTH_URL}/api/projects`)
   const data = await responseAll.json()
 
   return (

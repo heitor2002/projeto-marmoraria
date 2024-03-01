@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function Projects() {
 
-  const response = await fetch("http://localhost:3000/api/projects")
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/projects`)
   const data = await response.json()
 
   console.log(data)

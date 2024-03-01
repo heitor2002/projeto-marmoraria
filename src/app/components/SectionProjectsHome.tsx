@@ -1,10 +1,9 @@
-export default function SectionProjectsHome() {
-  const urlImages:string[] = [
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/marmore_branco_parana.jpg",
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/tumulo-modelo-home.jpg",
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/pia-modelo-home.jpg",
-    "https://marmoraria-storage.s3.sa-east-1.amazonaws.com/marmore_calacata_matarazzo_2.jpg",
-  ]
+import SwiperProductsHome from "./SwiperProductsHome";
+
+export default async function SectionProjectsHome() {
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/products` )
+  const data = await response.json()
+
   return (
     <section className="bg-zinc-100 relative py-16">
       <div className="container">
@@ -15,23 +14,9 @@ export default function SectionProjectsHome() {
           </span>{" "}
           de <span className="text-zinc-900 font-bold italic">túmulos, pias, soleiras, peitoris e lavatórios</span>
         </h2>
-        <div className="bg-orange-500 w-full max-w-40 h-1 mb-20 mt-10"></div>
-        <div className="container max-w-6xl grid grid-cols-2 gap-5 ">
-          <div className="grid grid-cols-2 gap-4">
-            {urlImages.map(image => {
-              return <img
-              src={image}
-              alt=""
-              className="hover:scale-105 duration-200 w-full h-full max-h-44 object-cover"
-            />
-            })}
-          </div>
-          <div className="flex justify-end relative z-10">
-            <img
-              src="https://neromarmores.com.br/wp-content/uploads/2021/03/product-item.png"
-              alt=""
-            />
-          </div>
+        <div className="bg-orange-500 w-full max-w-40 h-1 m-10"></div>
+        <div className="container max-w-6xl">
+          <SwiperProductsHome data={data}/>
         </div>
       </div>
     </section>
