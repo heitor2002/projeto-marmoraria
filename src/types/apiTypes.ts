@@ -6,7 +6,7 @@ export type TypeSingleProject = {
   images?: UrlImage[];
 };
 
-interface UrlImage {
+export interface UrlImage {
   id: string,
   url_image: JSON,
 }
