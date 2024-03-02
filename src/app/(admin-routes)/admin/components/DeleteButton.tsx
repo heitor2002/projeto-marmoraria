@@ -29,7 +29,6 @@ export default function DeleteButton({ id }: { id: string }) {
 
   const handleDelete = async (id: string) => {
     if (!id) return;
-
     try {
       const deleteOptions = {
         method: "DELETE",

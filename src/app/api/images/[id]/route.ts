@@ -1,20 +1,17 @@
-import { query } from "@/app/lib/db";
+import connectMongo from "@/app/lib/db";
+import Images from "@/app/lib/imageSchema";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  try {
-    const image_id = await params.id;
-
-    const deleteProduct = await query({
-        query: "DELETE FROM db_images WHERE id = ?",
-        values: [image_id],
-    })
-
-    return NextResponse.json({ message: `Imagem ID:${image_id} foi deletada com sucesso!` }, {status: 201});
-  } catch (err) {
-    console.log(err);
+  try{
+    await connectMongo();
+    const id = await params.id;
+    await Images.findByIdAndDelete(id);
+    return NextResponse.json({ message: `Imagem ${id} foi deletada com sucesso!` }, { status: 200 });
+  }catch(error){
+    console.log(error)
   }
 }

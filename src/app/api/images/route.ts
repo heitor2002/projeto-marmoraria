@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { query } from "@/app/lib/db";
+import connectMongo from "@/app/lib/db";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import Images from "@/app/lib/imageSchema";
 
 const s3Client = new S3Client({
   region: process.env.NEXT_PUBLIC_AWS_S3_REGION,
@@ -29,11 +30,10 @@ async function uploadFileToS3(file: File, fileName: string) {
 }
 
 export async function GET() {
-  const products = await query({
-    query:"SELECT * FROM db_images",
-    values: []
-  })
-  return NextResponse.json(products)
+  await connectMongo()
+
+  const images = await Images.find({}).sort({_id: -1})
+  return NextResponse.json(images, {status: 201})
 }
 
 export async function POST(request: NextRequest) {
@@ -53,3 +53,4 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Error uploading file" });
   }
 }
+
