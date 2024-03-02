@@ -12,7 +12,9 @@ interface ProductProps {
 }
 
 export default function FormProducts() {
-  const { data } = useFetch("/api/images");
+  const { data } = useFetch("http://localhost:3000/api/images");
+
+  console.log(data)
 
   const router = useRouter()
 
@@ -36,7 +38,7 @@ export default function FormProducts() {
     "Neolith",
   ];
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e: any) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
@@ -136,9 +138,9 @@ export default function FormProducts() {
           {data
             .map((dataImage, index) => {
               return (
-                <div key={index} onClick={() => setImage(dataImage.url_image)}>
+                <div key={index} onClick={() => setImage(dataImage.urlImage)}>
                   <img
-                    src={dataImage.url_image}
+                    src={dataImage.urlImage}
                     alt=""
                     className="hover:border-4 duration-200 border-green-600"
                   />

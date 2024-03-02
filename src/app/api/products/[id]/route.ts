@@ -1,20 +1,17 @@
-import { query } from "@/app/lib/db";
+import connectMongo from "@/app/lib/db";
+import Products from "@/app/lib/productSchema";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  try {
+  try{
+    await connectMongo();
     const id = await params.id;
-
-    const deleteProduct = await query({
-        query: "DELETE FROM products WHERE id = ?",
-        values: [id],
-    })
-
-    return NextResponse.json({ message: `Produto ID:${id} foi deletada com sucesso!` }, {status: 201});
-  } catch (err) {
-    console.log(err);
+    await Products.findByIdAndDelete(id);
+    return NextResponse.json({ message: `Imagem ${id} foi deletada com sucesso!` }, { status: 200 });
+  }catch(error){
+    console.log(error)
   }
 }

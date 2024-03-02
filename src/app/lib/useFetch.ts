@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 interface ImagesProps {
-  id: string;
-  url_image: string;
+  _id: string;
+  urlImage: string;
 }
 
 export default function useFetch(url: string) {

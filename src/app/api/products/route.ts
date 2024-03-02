@@ -1,25 +1,21 @@
 import { NextRequest, NextResponse } from "next/server"
-import { query } from "@/app/lib/db"
+import connectMongo from "@/app/lib/db"
+import Products from "@/app/lib/productSchema";
 
 export async function GET() {
-  const products = await query({
-    query:"SELECT * FROM products",
-    values: []
-  })
-  return NextResponse.json(products)
+  await connectMongo()
+
+  const products = await Products.find({}).sort({_id: -1})
+  return NextResponse.json(products, {status: 201})
 }
 
-export async function POST(request:NextRequest){
+export async function POST(request: NextRequest) {
+  const { productName, productCategory, productImage } =
+    await request.json();
 
-  const {id, product_name, product_category, product_image } = await request.json()
+  await connectMongo();
 
-  const product = await query({
-    query: "INSERT INTO products (id, product_name, product_category, product_image) VALUES (?,?,?,?)",
-    values: [id, product_name, product_category, product_image]
-  })
-
-  // return NextResponse.json({id, product_name, product_category, product_image}, {status: 201})
-  return NextResponse.json({message: "Produtos cadastrados com sucesso!"}, {status: 201})
-
+  await Products.create({ productName, productCategory, productImage });
+  return NextResponse.json({ message: "Post created!" }, { status: 200 });
 }
 
