@@ -1,7 +1,7 @@
 import SwiperProductsHome from "./SwiperProductsHome";
 
 export default async function SectionProjectsHome() {
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/products` )
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/products`, {cache: "no-cache"} )
   const data = await response.json()
 
   return (
