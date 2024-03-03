@@ -126,12 +126,10 @@ export default function FilterPageProjects({projects}:{projects:TypeSingleProjec
       </div>
       <div className="flex flex-col items-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-10">
         {products.map((item, index) => {
-          const image = JSON.parse(item.images)
-          console.log(image)
           return (
             <div className="w-full max-w-80 border border-zinc-200" key={index}>
               <img
-                src={image[0].url_image}
+                src={item.images[0].urlImage}
                 alt=""
                 className="w-full h-44 object-cover"
               />
@@ -143,7 +141,7 @@ export default function FilterPageProjects({projects}:{projects:TypeSingleProjec
                 <h3 className="text-sm text-zinc-700 mb-3">
                   Ramo: {item.branch}
                 </h3>
-                <Link href={"/projetos/" + item.id}>
+                <Link href={"/projetos/" + item._id}>
                   <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
                     Ver mais
                   </h2>

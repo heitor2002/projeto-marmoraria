@@ -5,8 +5,8 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 interface ImagesProps {
-  id: string;
-  url_image: string;
+  _id: string;
+  urlImage: string;
 }
 
 export default function FormProjects({
@@ -17,10 +17,11 @@ export default function FormProjects({
   // console.log(products)
   const [images, setImages] = useState<ImagesProps[]>([]);
   const [project, setProject] = useState<TypeSingleProject>({
-    id: uuidv4(),
+    _id: uuidv4(),
     branch: "",
     category: "",
     name: "",
+    views: 0
   });
   const category = [
     "Granito",
@@ -33,21 +34,21 @@ export default function FormProjects({
   ];
 
   const branch = ["Túmulos", "Pias", "Lavadeiras"];
-  const onChangeInput = (e) =>
+  const onChangeInput = (e: any) =>
     setProject({ ...project, [e.target.name]: e.target.value });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const {id, branch, category, name} = project;
+    const {name, branch, category, views } = project;
 
     try{
 
       const options = {
         method: "POST",
         headers: {"Content-type":"application/json"},
-        body: JSON.stringify({id, branch, category, name, images})
+        body: JSON.stringify({name, branch, category, views, images})
       }
 
-      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/projects`, options)
+      const response = await fetch(`/api/projects`, options)
       const json = await response.json()
 
       console.log(json)
@@ -57,10 +58,10 @@ export default function FormProjects({
   };
 
   const incrementImage = (objectImage: ImagesProps) => {
-    const filterItem = images.find((image) => image.id === objectImage.id);
+    const filterItem = images.find((image) => image._id === objectImage._id);
 
-    const removeImage = ({ id }: ImagesProps) => {
-      const removeItem = images.filter((image) => image.id !== id);
+    const removeImage = ({ _id }: ImagesProps) => {
+      const removeItem = images.filter((image) => image._id !== _id);
       setImages([...removeItem]);
     };
     filterItem ? removeImage(objectImage) : setImages([...images, objectImage]);
@@ -139,20 +140,20 @@ export default function FormProjects({
             <div className="flex flex-col gap-3">
               <h2 className="text-2xl">Imagem de destaque:</h2>
               <img
-                src={images[0].url_image}
+                src={images[0].urlImage}
                 alt=""
                 className="w-full max-w-60"
               />
             </div>
             <h2 className="text-2xl mt-10">Outras imagens de visualização:</h2>
             <div className="w-full max-w-5xl grid grid-cols-4 mt-4 gap-3">
-              {images.map((image) => {
+              {images.map((image,index) => {
                 return (
                   <img
-                    src={image.url_image}
+                    src={image.urlImage}
                     alt="Projeto"
                     className="max-w-48 object-contain"
-                    key={image.id}
+                    key={index}
                   />
                 );
               })}
@@ -166,10 +167,10 @@ export default function FormProjects({
           return (
             <div
               className="border border-zinc-600 cursor-pointer m-3"
-              key={dataImage.id}
+              key={dataImage._id}
               onClick={(e) => incrementImage(dataImage)}
             >
-              <img src={dataImage.url_image} alt="" />
+              <img src={dataImage.urlImage} alt="" />
             </div>
           );
         })}

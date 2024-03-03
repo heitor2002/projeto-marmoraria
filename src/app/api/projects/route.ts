@@ -1,25 +1,20 @@
-import { query } from "@/app/lib/db";
+import connectMongo from "@/app/lib/db";
+import Projects from "@/app/lib/projectsSchema";
 
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
-  const projects = await query({
-    query:"SELECT * FROM projects",
-    values: []
-  })
+  await connectMongo()
+
+  const projects = await Projects.find({}).sort({_id: -1})
   return NextResponse.json(projects, {status: 201})
 }
 
-export async function POST(request:NextRequest){
-  const {id, name, category, branch, images } = await request.json()
+export async function POST(request: NextRequest) {
+  const { name, category, branch, images, views } = await request.json();
 
-  const imgJson = JSON.stringify(images)
+  await connectMongo();
 
-  const project = await query({
-    query: "INSERT INTO projects (id, name, category, branch, images) VALUES (?,?,?,?,?)",
-    values: [id, name, category, branch, imgJson]
-  })
-
-  return NextResponse.json({message: "Projeto cadastrados com sucesso!", posts: {project}}, {status: 201})
-
+  await Projects.create({ name, category, branch, images, views });
+  return NextResponse.json({message: "Post created!"}, {status: 201})
 }

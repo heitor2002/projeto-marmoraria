@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 
 interface ProductProps {
   id: string;
-  product_name: string;
-  product_category: string;
+  productName: string;
+  productCategory: string;
 }
 
 export default function FormProducts() {
@@ -22,8 +22,8 @@ export default function FormProducts() {
 
   const [product, setProduct] = useState<ProductProps>({
     id: uuidv4(),
-    product_name: "",
-    product_category: "",
+    productName: "",
+    productCategory: "",
   });
 
   const [productMessage, setProductMessage] = useState(false)
@@ -44,14 +44,14 @@ export default function FormProducts() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const product_image = image
-    const {id, product_name, product_category } = product
+    const productImage = image
+    const {id, productName, productCategory } = product
 
     try{
       const options = {
         method: "POST",
         headers: {"Content-type":"application/json"},
-        body: JSON.stringify({id, product_name, product_category, product_image})
+        body: JSON.stringify({id, productName, productCategory, productImage})
       }
 
       const response = await fetch("/api/products", options)
@@ -63,8 +63,8 @@ export default function FormProducts() {
         setProductMessage(false)
         setProduct({
           id: uuidv4(),
-          product_category: "",
-          product_name: "",
+          productCategory: "",
+          productName: "",
         })
       }, 2000)
       
@@ -84,10 +84,10 @@ export default function FormProducts() {
           <label htmlFor="product_name">Nome do produto:</label>
           <input
             type="text"
-            id="product_name"
-            name="product_name"
+            id="productName"
+            name="productName"
             className="bg-transparent border border-zinc-500 text-zinc-300 py-1 px-2"
-            value={product.product_name}
+            value={product.productName}
             onChange={onChangeInput}
             required
           />
@@ -95,10 +95,10 @@ export default function FormProducts() {
         <div className="flex flex-col gap-1">
           <label htmlFor="product_category">Categoria do produto:</label>
           <select
-            name="product_category"
-            id="product_category"
+            name="productCategory"
+            id="productCategory"
             className="bg-transparent border border-zinc-500 text-zinc-300 py-1 px-2"
-            value={product.product_category}
+            value={product.productCategory}
             onChange={onChangeInput}
             required
           >
@@ -112,13 +112,13 @@ export default function FormProducts() {
             })}
           </select>
         </div>
-        {product.product_name !== "" && (
+        {product.productName !== "" && (
           <div className="flex flex-col gap-1">
             <label htmlFor="product_image">Imagem do produto:</label>
             {image && <h2 className="text-sm">{image}</h2>}
           </div>
         )}
-        {product.product_name !== "" && (
+        {product.productName !== "" && (
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
               {image && <img src={image} alt="image" />}
@@ -133,7 +133,7 @@ export default function FormProducts() {
           </div>
         )}
       </div>
-      {product.product_name !== "" && (
+      {product.productName !== "" && (
         <div className="grid grid-cols-3 gap-3 break-inside-avoid">
           {data
             .map((dataImage, index) => {

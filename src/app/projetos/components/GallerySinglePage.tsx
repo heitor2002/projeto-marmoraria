@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function GallerySinglePage({data}:{data:TypeSingleProject}) {
   
-  const images = JSON.parse(data.images)
-  const [urlImage, setUrlImage] = useState(images[0].url_image);
+  const projectImage = data?.images
+  const [urlImage, setUrlImage] = useState(projectImage[0].urlImage);
 
   return (
     <main className="container max-w-6xl grid grid-cols-1 md:grid-cols-9 py-10">
@@ -16,14 +16,14 @@ export default function GallerySinglePage({data}:{data:TypeSingleProject}) {
           <img src={urlImage} alt="" className="w-full h-full object-cover flex justify-center items-center" />
         </div>
         <div className="w-full mt-5 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-          {images.map((urlImg, index) => {
+          {projectImage.map((urlImg, index) => {
             return (
               <button
                 className="w-full max-w-40 h-20 bg-blue-500"
                 key={index}
-                onClick={() => setUrlImage(urlImg.url_image)}
+                onClick={() => setUrlImage(urlImg.urlImage)}
               >
-                <img src={urlImg.url_image} alt="" className="w-full h-full" />
+                <img src={urlImg.urlImage} alt="" className="w-full h-full" />
               </button>
             );
           })}

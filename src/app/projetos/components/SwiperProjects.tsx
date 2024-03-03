@@ -37,19 +37,17 @@ export default function SwiperProjects({
         }}
       >
         {data.map((data, index) => {
-          const images = JSON.parse(data.images)
-          console.log(images)
           return (
             <SwiperSlide key={index}>
               <div className="w-full max-w-80 border border-zinc-400">
-              <img src={images[0].url_image} alt="" className="w-full h-36 object-cover" />
+              <img src={data.images[0].urlImage} alt="" className="w-full h-36 object-cover" />
               <div className="py-3 px-2">
                 <h2 className="text-lg font-bold">{data.name}</h2>
                 <h3 className="text-sm text-zinc-700">Categoria: {data.category}</h3>
                 <h3 className="text-sm text-zinc-700 mb-3">
                   Ramo: {data.branch}
                 </h3>
-                <Link href={"/projetos/" + data.id}>
+                <Link href={"/projetos/" + data._id}>
                   <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md">
                     Ver mais
                   </h2>

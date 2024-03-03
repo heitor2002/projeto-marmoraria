@@ -4,10 +4,10 @@ const productsSchema = new Schema(
   {
     productName: String,
     productCategory: String,
-    urlImage: String,
+    productImage: String,
   }
 );
 
-const Products = mongoose.models.Images || mongoose.model("Products", productsSchema, "products");
+const Products = mongoose.models.Products || mongoose.model("Products", productsSchema, "products");
 
 export default Products;

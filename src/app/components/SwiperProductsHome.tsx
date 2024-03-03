@@ -36,16 +36,16 @@ export default function SwiperProductsHome({ data }: { data: ProductProps[] }) {
             <SwiperSlide key={index}>
               <div className="w-full max-w-80 border border-zinc-400">
                 <img
-                  src={data.product_image}
+                  src={data.productImage}
                   alt=""
                   className="w-full h-36 object-cover"
                 />
                 <div className="py-3 px-2">
-                  <h2 className="text-lg font-bold">{data.product_name}</h2>
+                  <h2 className="text-lg font-bold">{data.productName}</h2>
                   <h3 className="text-sm text-zinc-700">
-                    Categoria: {data.product_category}
+                    Categoria: {data.productCategory}
                   </h3>
-                  <Link href={"/projetos/" + data.product_name}>
+                  <Link href={"/projetos/" + data.productName}>
                     <h2 className="w-full bg-orange-500 text-white py-1 text-center text-md mt-3">
                       Ver mais
                     </h2>

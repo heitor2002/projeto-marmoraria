@@ -19,7 +19,7 @@ export default async function SinglePageProjects({ params: { id } }: Params) {
 
   return (
     <section>
-      <GallerySinglePage data={singleData[0]} />
+      <GallerySinglePage data={singleData} />
       <div className="bg-slate-200 py-10">
         <div className="container max-w-6xl">
           <h2 className="text-4xl text-zinc-950">Veja mais projetos</h2>

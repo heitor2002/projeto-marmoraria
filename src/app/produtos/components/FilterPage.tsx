@@ -2,17 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-type TypeProducts={
-  id: string,
-  product_name: string,
-  product_category: string,
-  product_image: string,
-}
+import { ProductProps } from "@/types/apiTypes";
 
 export default function FilterPage() {
   const [categoryFilters, setCategoryFilters] = useState(new Set());
-  const [products, setProducts] = useState<TypeProducts[]>([])
+  const [products, setProducts] = useState<ProductProps[]>([])
 
   const updateFilter = (checked: boolean, categoryFilters:string) => {
     if (checked)
@@ -27,9 +21,7 @@ export default function FilterPage() {
   };
 
   const getProducts = async (url:string) => {
-    const res = await fetch(url, {
-      cache: "no-cache"
-    })
+    const res = await fetch(url)
     const data = await res.json()
     setProducts(data)
   }
@@ -50,7 +42,7 @@ export default function FilterPage() {
   const filteredProducts =
     categoryFilters.size === 0
       ? products
-      : products.filter((p) => categoryFilters.has(p.product_category));
+      : products.filter((p) => categoryFilters.has(p.productCategory));
   return (
     <div className="container max-w-7xl z-10 grid grid-cols-1 lg:grid-cols-12 py-20 gap-5">
       <aside className="col-span-3">
@@ -81,17 +73,17 @@ export default function FilterPage() {
             <div className="flex justify-center flex-col gap-2" key={index}>
               <div className="rounded-md">
                 <img
-                  src={item.product_image}
-                  alt={item.product_name}
+                  src={item.productImage}
+                  alt={item.productName}
                   className="w-full h-60 object-cover rounded-md"
                 />
               </div>
               <div className="">
-                <h2 className="text-lg font-bold text-zinc-900">{item.product_name}</h2>
-                <h3 className="text-sm text-zinc-600">Categoria: {item.product_category}</h3>
+                <h2 className="text-lg font-bold text-zinc-900">{item.productName}</h2>
+                <h3 className="text-sm text-zinc-600">Categoria: {item.productCategory}</h3>
               </div>
               <Link
-                href={"/projetos?name=" + item.product_name + "&category=" + item.product_category}
+                href={"/projetos?name=" + item.productName + "&category=" + item.productCategory}
                 className="w-full bg-transparent border border-orange-500 text-center text-orange-500 rounded-md py-2 hover:bg-orange-500 hover:text-white duration-200"
               >
                 Visualizar projetos

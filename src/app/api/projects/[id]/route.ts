@@ -1,35 +1,19 @@
-import { query } from "@/app/lib/db";
+import connectMongo from "@/app/lib/db";
+import Projects from "@/app/lib/projectsSchema";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const id = params.id
-  const projects = await query({
-    query:"SELECT * FROM projects WHERE id = ?",
-    values: [id]
-  })
-  return NextResponse.json(projects, {status: 201})
+type Params = {
+  params: { id: string };
+};
+
+export async function GET(request: NextRequest, { params }: Params) {
+  const { id } = params;
+  await connectMongo();
+  const project = await Projects.findOneAndUpdate(
+    { _id: id },
+    { $inc: { view: 1 } },
+    { new: true }
+  );
+  return NextResponse.json(project, { status: 200 });
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const id = await params.id;
-
-    const deleteProject = await query({
-      query: "DELETE FROM projects WHERE id = ?",
-      values: [id],
-    });
-
-    return NextResponse.json(
-      { message: `${id} foi deletado com sucesso!` },
-      { status: 201 }
-    );
-  } catch (err) {
-    console.log(err);
-  }
-}

@@ -12,7 +12,7 @@ export default function LoginForm() {
 
   const router = useRouter();
 
-  const onChangeInput = (e) =>
+  const onChangeInput = (e: any) =>
     setUser({ ...user, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,7 +37,9 @@ export default function LoginForm() {
       className="w-full px-3 py-5 flex flex-col gap-5 text-zinc-900 rounded-lg"
     >
       <div className="flex flex-col gap-1">
-        <label htmlFor="email" className="text-zinc-100">E-mail:</label>
+        <label htmlFor="email" className="text-zinc-100">
+          E-mail:
+        </label>
         <input
           type="text"
           name="email"
@@ -49,7 +51,9 @@ export default function LoginForm() {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="password" className="text-zinc-100">Senha:</label>
+        <label htmlFor="password" className="text-zinc-100">
+          Senha:
+        </label>
         <input
           type="password"
           name="password"
