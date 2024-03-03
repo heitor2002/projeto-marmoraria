@@ -11,7 +11,7 @@ export default async function ImagesForm() {
       <SendImage />
       <div className="mt-10">
         <h2 className="text-lg font-bold mb-3">Banco de imagens:</h2>
-        {/* <GridImages /> */}
+        <GridImages />
       </div>
     </div>
   );

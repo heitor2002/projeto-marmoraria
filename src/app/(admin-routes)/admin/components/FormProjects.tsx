@@ -17,11 +17,12 @@ export default function FormProjects({
   // console.log(products)
   const [images, setImages] = useState<ImagesProps[]>([]);
   const [project, setProject] = useState<TypeSingleProject>({
-    _id: uuidv4(),
+    _id: "",
     branch: "",
     category: "",
     name: "",
-    views: 0
+    views: 0,
+    images
   });
   const category = [
     "Granito",
