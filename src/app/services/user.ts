@@ -30,7 +30,7 @@ function readToken(token: string) {
 }
 
 export async function userLogin(body: TypeUserLogin) {
-  const response = await fetch("http://localhost:3000/api/users");
+  const response = await fetch(`${process.env.NEXT_AUTH_URL}api/users`);
   const data = await response.json();
   const user = data.find(
     ({ email }: { email: string }) => email === body.email

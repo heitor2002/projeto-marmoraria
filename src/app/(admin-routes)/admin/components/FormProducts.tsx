@@ -12,7 +12,7 @@ interface ProductProps {
 }
 
 export default function FormProducts() {
-  const { data } = useFetch("http://localhost:3000/api/images");
+  const { data } = useFetch(`${process.env.NEXT_AUTH_URL}api/images`);
 
   console.log(data)
 

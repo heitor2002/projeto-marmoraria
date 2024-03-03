@@ -6,7 +6,7 @@ interface DataImages{
 }
 
 export default async function GridImages(){
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/images`, {cache: "no-cache"})
+    const response = await fetch(`${process.env.NEXT_AUTH_URL}api/images`, {cache: "no-cache"})
     const data:DataImages[] = await response.json()
 
     return(

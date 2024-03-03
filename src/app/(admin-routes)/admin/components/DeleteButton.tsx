@@ -36,7 +36,7 @@ export default function DeleteButton({ id }: { id: string }) {
       };
 
       const response = await fetch(
-        "http://localhost:3000/api/images/" + id,
+        `${process.env.NEXT_AUTH_URL}api/images/` + id,
         deleteOptions
       );
       const json = await response.json();

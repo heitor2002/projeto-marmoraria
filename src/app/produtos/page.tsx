@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import FilterPage from "./components/FilterPage";
+import { Suspense } from "react";
+import SkeletonBox from "../components/SkeletonBox";
 
 export const metadata: Metadata = {
   title: "Produtos",
@@ -10,7 +12,9 @@ export default function Products() {
   return (
     <section>
       <main>
-        <FilterPage />
+        <Suspense fallback={<SkeletonBox />}>
+          <FilterPage />
+        </Suspense>
       </main>
     </section>
   );

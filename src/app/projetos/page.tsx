@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import FilterPageProjects from "./components/FilterPageProjects";
+import { Suspense } from "react";
+import SkeletonBox from "../components/SkeletonBox";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -7,9 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Projects() {
-
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/projects`, {cache: "no-cache"})
-  const data = await response.json()
+  const response = await fetch(`${process.env.NEXT_AUTH_URL}api/projects`, {
+    cache: "no-cache",
+  });
+  const data = await response.json();
 
   return (
     <section className="z-10">
@@ -27,7 +30,9 @@ export default async function Projects() {
           </div>
         </div>
       </main>
-      <FilterPageProjects projects={data}/>
+      <Suspense fallback={<SkeletonBox />}>
+        <FilterPageProjects projects={data} />
+      </Suspense>
     </section>
   );
 }

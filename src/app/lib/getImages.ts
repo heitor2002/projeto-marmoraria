@@ -1,6 +1,6 @@
 export default async function getImages() {
     try {
-      const response = await fetch("http://localhost:3000/api/images", {
+      const response = await fetch(`${process.env.NEXT_AUTH_URL}api/images`, {
         cache: "no-cache",
       });
       if (!response) throw new Error("Failed to fetch");
