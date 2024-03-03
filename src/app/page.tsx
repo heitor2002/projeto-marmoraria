@@ -43,7 +43,7 @@ export default function Home() {
           className="absolute w-full h-full top-0 left-0 object-cover z-0 brightness-50"
         />
       </section>
-      <SectionProjectsHome />
+      {/* <SectionProjectsHome /> */}
       <section className="py-10 relative z-10">
         <div className="container max-w-5xl relative z-10">
           <div className="mx-auto my-10 bg-orange-600 w-full max-w-40 h-1"></div>

@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Projects() {
-  const response = await fetch(`${process.env.NEXT_AUTH_URL}api/projects`, {
-    cache: "no-cache",
-  });
-  const data = await response.json();
+  // const response = await fetch(`${process.env.NEXT_AUTH_URL}api/projects`, {
+  //   cache: "no-cache",
+  // });
+  // const data = await response.json();
 
   return (
     <section className="z-10">
@@ -31,7 +31,7 @@ export default async function Projects() {
         </div>
       </main>
       <Suspense fallback={<SkeletonBox />}>
-        <FilterPageProjects projects={data} />
+        {/* <FilterPageProjects projects={data} /> */}
       </Suspense>
     </section>
   );
