@@ -3,8 +3,8 @@ import Card from "./components/Card";
 
 export default function Contact() {
   return (
-    <section className="grid grid-cols-2 min-h-screen">
-      <main className="flex justify-end bg-zinc-100 text-zinc-900">
+    <section className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+      <main className="flex justify-center md:justify-end bg-zinc-100 text-zinc-900">
         <div className="w-full max-w-lg flex justify-center items-start flex-col px-3">
           <h2 className="text-3xl">
             Gostou do nosso trabalho? <br /> Entre em{" "}
@@ -22,11 +22,11 @@ export default function Contact() {
               <h2 className="text-lg text-orange-500">
                 Marcos vendedor:
               </h2>
-              <Card name="Marcos vendedos" urlContact="/" />
+              <Card name="Marcos vendedos" urlContact="https://wa.me/5518991465072" />
             </div>
             <div className="flex flex-col gap-1">
               <h2 className="text-lg text-orange-500">Escritório:</h2>
-              <Card name="Marcos vendedos" urlContact="/" />
+              <Card name="Marcos vendedos" urlContact="https://wa.me/5518996680223" />
             </div>
           </div>
         </div>
