@@ -54,7 +54,7 @@ export default function FormProducts() {
         body: JSON.stringify({id, productName, productCategory, productImage})
       }
 
-      const response = await fetch("/api/products", options)
+      const response = await fetch(`${process.env.NEXT_AUTH_URL}api/products`, options)
       const json = await response.json()
 
       console.log(json)

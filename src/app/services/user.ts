@@ -8,7 +8,7 @@ type TypeUserLogin = {
 };
 
 type TypeUserJWT = {
-  id: string,
+  _id: string,
   email: string;
   name: string;
   hierarchy: string;
@@ -16,7 +16,7 @@ type TypeUserJWT = {
 
 function createToken(user: TypeUserJWT) {
   return jwt.sign(
-    { id:user.id, email: user.email, name: user.name, hierarchy: user.hierarchy },
+    { id:user._id, email: user.email, name: user.name, hierarchy: user.hierarchy },
     SECRET_KEY
   );
 }
