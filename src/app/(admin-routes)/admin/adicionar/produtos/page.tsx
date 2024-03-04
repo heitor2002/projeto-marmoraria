@@ -1,7 +1,7 @@
 import FormProducts from "../../components/FormProducts";
 
 export default async function ProductForm(){
-    const response = await fetch(`${process.env.NEXT_AUTH_URL}/api/images`)
+    const response = await fetch(`${process.env.NEXT_AUTH_URL}api/images`, {cache: "no-cache"})
     const data = await response.json()
     
     console.log(data)

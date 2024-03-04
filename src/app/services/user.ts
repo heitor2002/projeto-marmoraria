@@ -1,4 +1,6 @@
 import jwt from "jsonwebtoken";
+import connectMongo from "../lib/db";
+import Users from "../lib/usersSchema";
 
 const SECRET_KEY = `${process.env.SECRET_KEY_JSON_WEB_TOKEN}`;
 
@@ -30,8 +32,8 @@ function readToken(token: string) {
 }
 
 export async function userLogin(body: TypeUserLogin) {
-  const response = await fetch(`${process.env.NEXT_AUTH_URL}api/users`);
-  const data = await response.json();
+  await connectMongo()
+  const data = await Users.find({})
   const user = data.find(
     ({ email }: { email: string }) => email === body.email
   );
