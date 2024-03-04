@@ -11,8 +11,12 @@ interface ProductProps {
   productCategory: string;
 }
 
-export default function FormProducts() {
-  const { data } = useFetch(`${process.env.NEXT_AUTH_URL}api/images`);
+type TypeDataProps = {
+  _id: string,
+  urlImage: string,
+}
+
+export default function FormProducts({data}: {data:TypeDataProps[]}) {
 
   console.log(data)
 
