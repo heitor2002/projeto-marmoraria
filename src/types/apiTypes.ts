@@ -1,17 +1,3 @@
-// export type TypeSingleProject = {
-//   _id: string;
-//   name: string;
-//   category: string;
-//   branch: string;
-//   views: number;
-//   images?: UrlImage[];
-// };
-
-// export interface UrlImage {
-//   _id: string;
-//   urlImage: string;
-// }
-
 export interface ProductProps {
   _id: string;
   productName: string;
@@ -26,7 +12,7 @@ export interface TypeSingleProject {
   branch: string
   images: Image[]
   __v?: number
-  view?: number
+  views?: number
 }
 
 export interface Image {
