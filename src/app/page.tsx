@@ -8,6 +8,7 @@ import Comments from "./components/Comments";
 import SectionProjectsHome from "./components/SectionProjectsHome";
 import bgColor from "../../public/banner-home.jpg";
 import { Metadata } from "next";
+import ServicesAndProjects from "./components/ServicesAndProjects";
 
 export const metadata: Metadata = {
   title: "Página Inicial",
@@ -44,6 +45,7 @@ export default function Home() {
         />
       </section>
       <SectionProjectsHome />
+      <ServicesAndProjects />
       <section className="py-10 relative z-10">
         <div className="container max-w-5xl relative z-10">
           <div className="mx-auto my-10 bg-orange-600 w-full max-w-40 h-1"></div>

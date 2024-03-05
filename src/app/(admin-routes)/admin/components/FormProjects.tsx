@@ -34,7 +34,7 @@ export default function FormProjects({
     "Neolith",
   ];
 
-  const branch = ["Túmulos", "Pias", "Lavadeiras"];
+  const branch = ["Túmulos", "Pias", "Lavatórios"];
   const onChangeInput = (e: any) =>
     setProject({ ...project, [e.target.name]: e.target.value });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
