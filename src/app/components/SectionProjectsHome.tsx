@@ -8,8 +8,6 @@ export default async function SectionProjectsHome() {
   });
   const data = await response.json();
 
-  console.log(data)
-
   return (
     <section className="bg-zinc-100 relative py-16">
       <div className="container">
