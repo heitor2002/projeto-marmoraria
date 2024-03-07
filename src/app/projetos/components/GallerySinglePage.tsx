@@ -19,11 +19,11 @@ export default function GallerySinglePage({data}:{data:TypeSingleProject}) {
           {projectImage.map((urlImg, index) => {
             return (
               <button
-                className="w-full max-w-40 h-20 bg-blue-500"
+                className="w-full max-w-40 h-20"
                 key={index}
                 onClick={() => setUrlImage(urlImg.urlImage)}
               >
-                <img src={urlImg.urlImage} alt="" className="w-full h-full" />
+                <img src={urlImg.urlImage} alt="" className="w-full h-full object-cover" />
               </button>
             );
           })}
