@@ -33,7 +33,7 @@ export default function SendImage() {
         body: formData,
       };
 
-      const response = await fetch(`${process.env.NEXT_AUTH_URL}api/images`, options);
+      const response = await fetch(`/api/images`, options);
 
       const data = await response.json();
       console.log(data.status);

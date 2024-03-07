@@ -12,8 +12,8 @@ export default function GallerySinglePage({data}:{data:TypeSingleProject}) {
   return (
     <main className="container max-w-6xl grid grid-cols-1 md:grid-cols-9 py-10">
       <div className="flex flex-col col-span-5">
-        <div className="w-full md:h-72 lg:h-96 bg-red-400">
-          <img src={urlImage} alt="" className="w-full h-full object-cover flex justify-center items-center" />
+        <div className="w-full md:h-72 lg:h-96">
+          <img src={urlImage} alt="" className="w-full h-full object-contain flex justify-center items-center" />
         </div>
         <div className="w-full mt-5 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {projectImage.map((urlImg, index) => {
